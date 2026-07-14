@@ -151,23 +151,33 @@ a{color:inherit;text-decoration:none}
 .float-cta{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--orange);color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:30px;box-shadow:0 14px 34px -10px rgba(245,131,25,.7);display:flex;align-items:center;gap:9px;cursor:pointer;opacity:0;transform:translateY(20px);transition:all .4s var(--ease);pointer-events:none}
 .float-cta.show{opacity:1;transform:translateY(0);pointer-events:auto}
 .float-cta svg{width:16px;height:16px;stroke:#fff;stroke-width:2.4;fill:none}
-/* ===== Section 2 — As Seen On (auto-marquee, compact, no description) ===== */
+/* ===== Section 2 — As Seen On (logo marquee, compact) ===== */
 .seen{padding:18px 0;background:var(--bg);border-top:1px solid var(--line)}
-.seen-label{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-/* overflow-x:clip blocks page H-scroll; overflow-y:visible lets the tooltip escape UP without expanding scrollWidth (clip-margin caused a 120px mobile H-scroll). Edge fade via white gradients. */
+.seen-label{display:block;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+/* overflow-x:clip blocks page H-scroll; overflow-y stays visible so the tooltip can escape above the strip. */
 .marquee{position:relative;overflow-x:clip;overflow-y:visible}
 .marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:64px;z-index:3;pointer-events:none}
 .marquee::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
 .marquee::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
 .marquee-track{display:flex;width:max-content;align-items:center;animation:marq 30s linear infinite}
 .seen:hover .marquee-track{animation-play-state:paused}
-.logo-item{flex:0 0 auto;margin-right:58px;position:relative;display:flex;align-items:center;cursor:pointer}
-.lg-name{font-weight:800;font-size:20px;letter-spacing:-.01em;white-space:nowrap;color:#9aa7b4;transition:color .3s var(--ease)}
-.logo-item:hover .lg-name{color:var(--navy)}
-.lg-img{height:48px;width:auto;display:block}
-.lg-tip{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translateX(-50%) translateY(4px);width:320px;background:#fff;color:var(--ink);border:1px solid var(--line);font-size:12.5px;font-weight:400;line-height:1.45;text-align:center;padding:9px 12px;border-radius:9px;box-shadow:0 12px 32px -8px rgba(34,38,42,.30);opacity:0;visibility:hidden;transition:all .25s var(--ease);z-index:6}
+.logo-item{flex:0 0 auto;margin-right:58px;position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer;outline:none}
+.lg-img{height:48px;width:auto;max-width:180px;display:block;object-fit:contain;object-position:center;transition:transform .25s var(--ease)}
+.logo-item:hover .lg-img,.logo-item:focus-visible .lg-img,.logo-item:focus-within .lg-img{transform:translateY(-1px)}
+.logo-item.l-coruzant .lg-img{height:40px;max-width:180px}
+.logo-item.l-architects .lg-img{height:40px;max-width:160px}
+.logo-item.l-bizzbuzz .lg-img{height:36px;max-width:130px}
+.logo-item.l-techbullion .lg-img{height:32px;max-width:135px}
+.logo-item.l-urban .lg-img{height:44px;max-width:68px}
+.logo-item.l-today .lg-img{height:28px;max-width:130px}
+/* Final logo tone is baked into assets/press/mono/*.png; keep render CSS layout-only. */
+.lg-tip{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translateX(-50%) translateY(4px);width:320px;background:#fff;color:var(--ink);border:1px solid var(--line);font-size:12.5px;font-weight:400;line-height:1.45;text-align:center;padding:9px 12px;border-radius:9px;box-shadow:0 12px 32px -8px rgba(34,38,42,.30);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease),visibility 0s .25s;z-index:6}
 .lg-tip::after{content:"";position:absolute;left:50%;margin-left:-7px;top:100%;border:7px solid transparent;border-top-color:#fff;filter:drop-shadow(0 1px 0 var(--line))}
-.logo-item:hover .lg-tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.logo-item:hover .lg-tip,.logo-item:focus-visible .lg-tip,.logo-item:focus-within .lg-tip{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:.05s}
+.lg-claim{display:block}
+.lg-link{display:inline;color:var(--orange);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.lg-link:hover,.lg-link:focus-visible{color:var(--navy)}
+.logo-item[aria-hidden="true"] .lg-link{pointer-events:none}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 
@@ -546,8 +556,16 @@ a{color:inherit;text-decoration:none}
   .lb-overlay{padding:16px}
   .lb-close{top:6px;right:6px}
   .seen{padding:14px 0}
+  .seen-label{margin-bottom:14px}
+  .marquee::before,.marquee::after{width:40px}
   .logo-item{margin-right:40px}
-  .lg-name{font-size:16px}
+  .lg-img{height:38px;max-width:130px}
+  .logo-item.l-coruzant .lg-img{height:33px;max-width:145px}
+  .logo-item.l-architects .lg-img{height:33px;max-width:135px}
+  .logo-item.l-bizzbuzz .lg-img{height:30px;max-width:110px}
+  .logo-item.l-techbullion .lg-img{height:26px;max-width:115px}
+  .logo-item.l-urban .lg-img{height:36px;max-width:52px}
+  .logo-item.l-today .lg-img{height:24px;max-width:120px}
   .lg-tip{width:250px}
   .marquee-track{animation-duration:22s}
   .float-cta{right:16px;bottom:76px}
@@ -1129,20 +1147,42 @@ a{color:inherit;text-decoration:none}
 
 <!-- ============ SECTION 2 — AS SEEN ON (auto-marquee, compact) ============ -->
 <section class="seen reveal" aria-label="As seen on">
+  <span class="seen-label">As Seen On</span>
   <div class="marquee">
     <div class="marquee-track">
-      <a class="logo-item" href="https://coruzant.com/infrastructure/scan-to-bim-dense-mep/" target="_blank" rel="noopener"><span class="lg-name">Coruzant</span><span class="lg-tip"><b>Coruzant Technologies</b> — ViBIM scan to BIM case study, modeling ultra-dense MEP systems for a US factory.</span></a>
-      <a class="logo-item" href="https://thearchitectsdiary.com/what-is-a-federated-model-in-bim/" target="_blank" rel="noopener"><span class="lg-name">The Architect's Diary</span><span class="lg-tip"><b>The Architect's Diary</b> — ViBIM cited for point cloud to BIM expertise in federated BIM coordination.</span></a>
-      <a class="logo-item" href="https://www.bizzbuzz.news/industry/construction/vibim-revolutionizing-renovation-projects-with-scan-to-bim-precision-1382485" target="_blank" rel="noopener"><span class="lg-name">BizzBuzz</span><span class="lg-tip"><b>BizzBuzz</b> — ViBIM cited for scan to BIM precision on renovation and retrofit projects.</span></a>
-      <a class="logo-item" href="https://techbullion.com/vibim-pro-tip-lod-300-vs-lod-350-which-one-do-you-actually-need/" target="_blank" rel="noopener"><span class="lg-name">TechBullion</span><span class="lg-tip"><b>TechBullion</b> — ViBIM experts break down LOD 300 vs LOD 350 for scan to BIM models.</span></a>
-      <a class="logo-item" href="https://www.urbansplatter.com/2026/03/how-to-choose-a-scan-to-bim-company/" target="_blank" rel="noopener"><span class="lg-name">Urban Splatter</span><span class="lg-tip"><b>Urban Splatter</b> — ViBIM featured as a scan to BIM company across architecture, structure and MEP.</span></a>
-      <a class="logo-item" href="https://todaynews.co.uk/2026/02/25/electrical-bim-modeling-benefits-and-how-scan-to-bim-helps/" target="_blank" rel="noopener"><span class="lg-name">Today News</span><span class="lg-tip"><b>Today News</b> — ViBIM named a Revit outsourcing partner for electrical BIM modeling from point cloud data.</span></a>
-      <a class="logo-item" href="https://coruzant.com/infrastructure/scan-to-bim-dense-mep/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="lg-name">Coruzant</span><span class="lg-tip"><b>Coruzant Technologies</b> — ViBIM scan to BIM case study, modeling ultra-dense MEP systems for a US factory.</span></a>
-      <a class="logo-item" href="https://thearchitectsdiary.com/what-is-a-federated-model-in-bim/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="lg-name">The Architect's Diary</span><span class="lg-tip"><b>The Architect's Diary</b> — ViBIM cited for point cloud to BIM expertise in federated BIM coordination.</span></a>
-      <a class="logo-item" href="https://www.bizzbuzz.news/industry/construction/vibim-revolutionizing-renovation-projects-with-scan-to-bim-precision-1382485" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="lg-name">BizzBuzz</span><span class="lg-tip"><b>BizzBuzz</b> — ViBIM cited for scan to BIM precision on renovation and retrofit projects.</span></a>
-      <a class="logo-item" href="https://techbullion.com/vibim-pro-tip-lod-300-vs-lod-350-which-one-do-you-actually-need/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="lg-name">TechBullion</span><span class="lg-tip"><b>TechBullion</b> — ViBIM experts break down LOD 300 vs LOD 350 for scan to BIM models.</span></a>
-      <a class="logo-item" href="https://www.urbansplatter.com/2026/03/how-to-choose-a-scan-to-bim-company/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="lg-name">Urban Splatter</span><span class="lg-tip"><b>Urban Splatter</b> — ViBIM featured as a scan to BIM company across architecture, structure and MEP.</span></a>
-      <a class="logo-item" href="https://todaynews.co.uk/2026/02/25/electrical-bim-modeling-benefits-and-how-scan-to-bim-helps/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="lg-name">Today News</span><span class="lg-tip"><b>Today News</b> — ViBIM named a Revit outsourcing partner for electrical BIM modeling from point cloud data.</span></a>
+      <!-- First set: logo is visual branding; the publication name is the inline anchor text. -->
+      <div class="logo-item l-coruzant" tabindex="0" role="group" aria-label="Coruzant Technologies">
+        <img class="lg-img" src="assets/press/mono/coruzant.png?v=1" alt="Coruzant Technologies logo" loading="lazy">
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://coruzant.com/infrastructure/scan-to-bim-dense-mep/" target="_blank" rel="noopener noreferrer"><b>Coruzant Technologies</b></a> — ViBIM scan to BIM case study, modeling ultra-dense MEP systems for a US factory.</span></span>
+      </div>
+      <div class="logo-item l-architects" tabindex="0" role="group" aria-label="The Architect's Diary">
+        <img class="lg-img" src="assets/press/mono/the-architects-diary.png?v=1" alt="The Architect's Diary logo" loading="lazy">
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://thearchitectsdiary.com/what-is-a-federated-model-in-bim/" target="_blank" rel="noopener noreferrer"><b>The Architect's Diary</b></a> — ViBIM cited for point cloud to BIM expertise in federated BIM coordination.</span></span>
+      </div>
+      <div class="logo-item l-bizzbuzz" tabindex="0" role="group" aria-label="BizzBuzz">
+        <img class="lg-img" src="assets/press/mono/bizzbuzz.png?v=1" alt="BizzBuzz logo" loading="lazy">
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://www.bizzbuzz.news/industry/construction/vibim-revolutionizing-renovation-projects-with-scan-to-bim-precision-1382485" target="_blank" rel="noopener noreferrer"><b>BizzBuzz</b></a> — ViBIM cited for scan to BIM precision on renovation and retrofit projects.</span></span>
+      </div>
+      <div class="logo-item l-techbullion" tabindex="0" role="group" aria-label="TechBullion">
+        <img class="lg-img" src="assets/press/mono/techbullion.png?v=1" alt="TechBullion logo" loading="lazy">
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://techbullion.com/vibim-pro-tip-lod-300-vs-lod-350-which-one-do-you-actually-need/" target="_blank" rel="noopener noreferrer"><b>TechBullion</b></a> — ViBIM experts break down LOD 300 vs LOD 350 for scan to BIM models.</span></span>
+      </div>
+      <div class="logo-item l-urban" tabindex="0" role="group" aria-label="Urban Splatter">
+        <img class="lg-img" src="assets/press/mono/urban-splatter.png?v=1" alt="Urban Splatter logo" loading="lazy">
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://www.urbansplatter.com/2026/03/how-to-choose-a-scan-to-bim-company/" target="_blank" rel="noopener noreferrer"><b>Urban Splatter</b></a> — ViBIM featured as a scan to BIM company across architecture, structure and MEP.</span></span>
+      </div>
+      <div class="logo-item l-today" tabindex="0" role="group" aria-label="Today News">
+        <img class="lg-img" src="assets/press/mono/today-news.png?v=1" alt="Today News logo" loading="lazy">
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://todaynews.co.uk/2026/02/25/electrical-bim-modeling-benefits-and-how-scan-to-bim-helps/" target="_blank" rel="noopener noreferrer"><b>Today News</b></a> — ViBIM named a Revit outsourcing partner for electrical BIM modeling from point cloud data.</span></span>
+      </div>
+
+      <!-- Second set: visual duplicate keeps the marquee seamless; it is removed from the accessibility tree. -->
+      <div class="logo-item l-coruzant" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/coruzant.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://coruzant.com/infrastructure/scan-to-bim-dense-mep/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>Coruzant Technologies</b></a> — ViBIM scan to BIM case study, modeling ultra-dense MEP systems for a US factory.</span></span></div>
+      <div class="logo-item l-architects" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/the-architects-diary.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://thearchitectsdiary.com/what-is-a-federated-model-in-bim/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>The Architect's Diary</b></a> — ViBIM cited for point cloud to BIM expertise in federated BIM coordination.</span></span></div>
+      <div class="logo-item l-bizzbuzz" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/bizzbuzz.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://www.bizzbuzz.news/industry/construction/vibim-revolutionizing-renovation-projects-with-scan-to-bim-precision-1382485" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>BizzBuzz</b></a> — ViBIM cited for scan to BIM precision on renovation and retrofit projects.</span></span></div>
+      <div class="logo-item l-techbullion" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/techbullion.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://techbullion.com/vibim-pro-tip-lod-300-vs-lod-350-which-one-do-you-actually-need/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>TechBullion</b></a> — ViBIM experts break down LOD 300 vs LOD 350 for scan to BIM models.</span></span></div>
+      <div class="logo-item l-urban" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/urban-splatter.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://www.urbansplatter.com/2026/03/how-to-choose-a-scan-to-bim-company/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>Urban Splatter</b></a> — ViBIM featured as a scan to BIM company across architecture, structure and MEP.</span></span></div>
+      <div class="logo-item l-today" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/today-news.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://todaynews.co.uk/2026/02/25/electrical-bim-modeling-benefits-and-how-scan-to-bim-helps/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>Today News</b></a> — ViBIM named a Revit outsourcing partner for electrical BIM modeling from point cloud data.</span></span></div>
     </div>
   </div>
 </section>
