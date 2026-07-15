@@ -948,7 +948,7 @@ a{color:inherit;text-decoration:none}
 .quote-trust li{display:flex;gap:11px;align-items:center;font-size:14.5px;color:rgba(255,255,255,.9)}
 .quote-trust svg{flex:0 0 auto;width:20px;height:20px;stroke:var(--orange);stroke-width:2.2;fill:none}
 .quote-form{background:#fff;border-radius:14px;padding:30px;box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06)}
-.quote-form h3{color:var(--head);font-size:19px;font-weight:800;margin-bottom:18px}
+.quote-form .qf-h{color:var(--head);font-size:19px;font-weight:800;margin-bottom:18px}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:13px;font-weight:600;color:var(--head);margin-bottom:6px}
 .field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font:inherit;font-size:14.5px;color:var(--head);background:#fff;resize:vertical}
@@ -1061,6 +1061,15 @@ a{color:inherit;text-decoration:none}
   .cta-main .ctas .btn{width:100%;justify-content:center}
   .foot-grid{grid-template-columns:1fr}
 }
+
+/* --- SEO heading-semantics migration (visuals unchanged; global *{margin:0} preserves spacing) --- */
+.proj .proj-title{font-size:17px;font-weight:700;color:var(--head);line-height:1.35}
+.gb-body .gb-h3{font-size:21px;font-weight:800;color:var(--head);line-height:1.22;letter-spacing:-.01em}
+.gb-body .gb-h4{font-size:15.5px;font-weight:700;color:var(--head);line-height:1.3}
+.ql-cta-body .ql-cta-h{font-size:15.5px;font-weight:700;color:var(--navy);line-height:1.3;letter-spacing:-.01em}
+.cta-main .cta-h{font-family:var(--sans);font-size:clamp(24px,2.6vw,33px);font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.02em;line-height:1.12;max-width:18ch}
+.ql-tablb .ql-tab-h{display:inline;font:inherit;color:inherit;letter-spacing:inherit;line-height:inherit}
+h3.faq-q{font:inherit}
 </style>
 </head>
 <body>
@@ -1429,7 +1438,7 @@ a{color:inherit;text-decoration:none}
 <section class="cta-band reveal" aria-label="Request a free BIM modeling trial">
   <div class="wrap">
     <div class="cta-card">
-      <h2 class="cta-title">Need Revit BIM modeling across every discipline?</h2>
+      <p class="cta-title">Need Revit BIM modeling across every discipline?</p>
       <p class="cta-sub">Send us your point cloud for a free trial model, no commitment.</p>
       <div class="cta-actions">
         <a class="cta-btn cta-btn-primary" href="#quote">Request a Free Trial
@@ -1452,8 +1461,8 @@ a{color:inherit;text-decoration:none}
       <input type="radio" name="qltab" id="qlt1" checked>
       <input type="radio" name="qltab" id="qlt2">
       <div class="ql-tabbar" role="tablist" aria-label="Quality control and standards">
-        <label class="ql-tablb" for="qlt1"><svg viewBox="0 0 24 24"><path d="M12 3l7.5 3.3v5c0 4.6-3.2 7.1-7.5 8.4-4.3-1.3-7.5-3.8-7.5-8.4v-5z"/><path d="M9 12l2.2 2.2L15.2 10"/></svg>Two-Layer QC (5 Checkpoints)</label>
-        <label class="ql-tablb" for="qlt2"><svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V8l6-4 6 4v13M9 21v-5h6v5"/></svg>Standards We Work To</label>
+        <label class="ql-tablb" for="qlt1"><svg viewBox="0 0 24 24"><path d="M12 3l7.5 3.3v5c0 4.6-3.2 7.1-7.5 8.4-4.3-1.3-7.5-3.8-7.5-8.4v-5z"/><path d="M9 12l2.2 2.2L15.2 10"/></svg><h3 class="ql-tab-h">Two-Layer QC</h3></label>
+        <label class="ql-tablb" for="qlt2"><svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V8l6-4 6 4v13M9 21v-5h6v5"/></svg><h3 class="ql-tab-h">Standards We Work To</h3></label>
       </div>
 
       <div class="ql-panels">
@@ -1499,7 +1508,7 @@ a{color:inherit;text-decoration:none}
         <span class="ql-cta-pl">independent QC layers</span>
       </div>
       <div class="ql-cta-body">
-        <h4>Need an as-built BIM delivered to your standards at a defined LOD?</h4>
+        <p class="ql-cta-h">Need an as-built BIM delivered to your standards at a defined LOD?</p>
       </div>
       <div class="ql-cta-actions">
         <a class="ql-btn primary" href="#quote">Request a Quote</a>
@@ -1526,7 +1535,7 @@ a{color:inherit;text-decoration:none}
         <img class="proj-img" src="https://vibimglobal.com/wp-content/uploads/2025/07/outsource-revit-modelling-for-uk-projects.jpg" alt="As-built Revit BIM model of commercial complexes in the UK, modeled from a point cloud">
         <div class="proj-body">
           <span class="proj-tag">Commercial · LOD 300</span>
-          <h3>Revit BIM Modeling for Commercial Complexes at UK</h3>
+          <p class="proj-title">Revit BIM Modeling for Commercial Complexes at UK</p>
           <p class="meta">Architecture and structure, registered point cloud</p>
           <a class="proj-link" href="/projects/revit-modeling-for-commercial-complexes-in-the-uk/">View more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
@@ -1535,7 +1544,7 @@ a{color:inherit;text-decoration:none}
         <img class="proj-img" src="https://vibimglobal.com/wp-content/uploads/2025/06/project-type-train-station-scaled.jpg" alt="As-built Revit BIM model of a train station in Canada from scan data">
         <div class="proj-body">
           <span class="proj-tag">Transport · LOD 300</span>
-          <h3>Revit BIM Modeling for a Train Station at Canada</h3>
+          <p class="proj-title">Revit BIM Modeling for a Train Station at Canada</p>
           <p class="meta">Structure and platform canopy from terrestrial scan</p>
           <a class="proj-link" href="/projects/revit-modeling-for-train-station-at-canada/">View more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
@@ -1544,7 +1553,7 @@ a{color:inherit;text-decoration:none}
         <img class="proj-img" src="https://vibimglobal.com/wp-content/uploads/2025/07/point-cloud-to-revit-for-heritage-sites.jpg" alt="As-built Revit BIM model of historical churches in the UK from laser scan data">
         <div class="proj-body">
           <span class="proj-tag">Heritage · LOD 300</span>
-          <h3>Revit BIM Modeling for Historical Churches at UK</h3>
+          <p class="proj-title">Revit BIM Modeling for Historical Churches at UK</p>
           <p class="meta">Decorative geometry captured from terrestrial scan</p>
           <a class="proj-link" href="/projects/revit-modeling-for-historical-churches-at-uk/">View more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
@@ -1553,7 +1562,7 @@ a{color:inherit;text-decoration:none}
         <img class="proj-img" src="https://vibimglobal.com/wp-content/uploads/2025/07/outsource-hospital-revit-modeling-canada.jpg" alt="As-built Revit BIM model of a hospital complex in Canada from scan data">
         <div class="proj-body">
           <span class="proj-tag">Healthcare · LOD 350</span>
-          <h3>Revit BIM Modeling for a Hospital Complex at Canada</h3>
+          <p class="proj-title">Revit BIM Modeling for a Hospital Complex at Canada</p>
           <p class="meta">MEP-heavy clinical layout, clash-checked</p>
           <a class="proj-link" href="/projects/revit-modeling-services-for-hospital-complex-at-canada/">View more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
@@ -1562,7 +1571,7 @@ a{color:inherit;text-decoration:none}
         <img class="proj-img" src="https://vibimglobal.com/wp-content/uploads/2025/07/scan-to-bim-for-education-buildings-uk-scaled.jpg" alt="As-built Revit BIM model of a museum building in Australia">
         <div class="proj-body">
           <span class="proj-tag">Cultural · LOD 300</span>
-          <h3>Revit BIM Modeling for a Museum at Australia</h3>
+          <p class="proj-title">Revit BIM Modeling for a Museum at Australia</p>
           <p class="meta">Multi-volume architecture and structure</p>
           <a class="proj-link" href="/projects/revit-modeling-for-museum-project-at-australia/">View more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
@@ -1571,7 +1580,7 @@ a{color:inherit;text-decoration:none}
         <img class="proj-img" src="https://vibimglobal.com/wp-content/uploads/2025/07/mep-bim-services-for-industrial-facilities-usa-1.jpg" alt="As-built Revit BIM model of MEP systems at a US industrial factory from point cloud">
         <div class="proj-body">
           <span class="proj-tag">Industrial · LOD 400</span>
-          <h3>Revit BIM Modeling for MEP Systems at a US Industrial Factory</h3>
+          <p class="proj-title">Revit BIM Modeling for MEP Systems at a US Industrial Factory</p>
           <p class="meta">Dense MEP systems, fabrication-level detail</p>
           <a class="proj-link" href="/projects/revit-modeling-for-mep-systems-at-industrial-factory-in-the-united-states/">View more <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
@@ -1593,7 +1602,7 @@ a{color:inherit;text-decoration:none}
   <div class="wrap">
     <div class="sec-head">
       <h2>Why Choose ViBIM as a <span class="hl">BIM Service Provider</span></h2>
-      <div class="rm"><p class="rm-text">ViBIM is the BIM service provider that meets every check a buyer makes before outsourcing: <strong>on-time delivery, fast turnaround, accurate models verified against your source scan, responsive communication and continuous improvement.</strong> For AEC and survey firms, that combination is what makes ViBIM a dependable Revit BIM modeling and outsourcing partner. The five strengths that set ViBIM apart as a BIM service provider are below:</p></div>
+      <div class="rm"><p class="rm-text">ViBIM is the BIM service provider that meets every check a buyer makes before outsourcing: <strong>on-time delivery, fast turnaround, accurate models verified against your source scan, responsive communication and continuous improvement.</strong> For AEC and survey firms, that combination is what makes ViBIM a dependable Revit BIM modeling and outsourcing partner, delivered by the specialists who model, coordinate and QC every project. The five strengths that set ViBIM apart as a BIM service provider are below:</p></div>
     </div>
 
     <div class="why-wrap">
@@ -1641,11 +1650,6 @@ a{color:inherit;text-decoration:none}
 <section class="sec reveal">
   <div class="wrap">
     <div class="why-team">
-      <div class="exp-head">
-        <div class="exp-head-l">
-          <h3>The specialists behind every BIM model</h3>
-        </div>
-      </div>
       <!-- BIM specialists (5): founder + Architecture/Structure/MEP leads + PM. Back-office (IT, Accounting) excluded from this page. Identity-first bios (Koray template) grounded in HR sheet. Single shared link under the heading. -->
       <div class="exp-rail" id="expRail">
         <article class="exp" tabindex="0">
@@ -1786,7 +1790,7 @@ a{color:inherit;text-decoration:none}
       <!-- team photo (transparent-cutout PNG, hosted on postimg); on WordPress, upload to media library and swap src -->
       <div class="cta-ceo"><img src="https://i.postimg.cc/GpNqzy8x/Thie-t-ke-chu-a-co-te-n.png" alt="ViBIM BIM modeling and Revit team"></div>
       <div class="cta-body">
-        <h3>Ready to scope your BIM modeling project?</h3>
+        <p class="cta-h">Ready to scope your BIM modeling project?</p>
         <p>Get a fixed quote in 12 to 24 hours, plus a free trial model first.</p>
         <div class="ctas">
           <a class="btn btn-primary" href="#quote">Get a Free Trial <svg class="ar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -1825,64 +1829,25 @@ a{color:inherit;text-decoration:none}
     </div>
     <div class="faq-list">
       <details class="faq-item" name="faqgroup" open>
-        <summary><span class="faq-q">What is Revit BIM modeling?</span><span class="faq-chev"></span></summary>
+        <summary><h3 class="faq-q">What is Revit BIM modeling?</h3><span class="faq-chev"></span></summary>
         <div class="faq-body">Revit BIM modeling is <strong>the process of converting point cloud, scan or drawing data into intelligent, parametric 3D models in Autodesk Revit that hold both geometry and information.</strong> A Revit BIM model carries data on every element, so it can be used for design, coordination, costing and facility management.</div>
       </details>
       <details class="faq-item" name="faqgroup">
-        <summary><span class="faq-q">How accurate are ViBIM's BIM models?</span><span class="faq-chev"></span></summary>
+        <summary><h3 class="faq-q">How accurate are ViBIM's BIM models?</h3><span class="faq-chev"></span></summary>
         <div class="faq-body">BIM models from ViBIM are <strong>verified element by element against the source scan through two independent QC layers, so the model reflects real conditions to the resolution of your point cloud.</strong> Accuracy is governed by scan quality and the LOD you choose, with QC run to ISO 19650 and US and UK standards.</div>
       </details>
       <details class="faq-item" name="faqgroup">
-        <summary><span class="faq-q">What file formats do you deliver?</span><span class="faq-chev"></span></summary>
+        <summary><h3 class="faq-q">What file formats do you deliver?</h3><span class="faq-chev"></span></summary>
         <div class="faq-body">File formats we deliver are <strong>typically three: .RVT for native Revit, .IFC for open BIM exchange, and .DWG for 2D CAD,</strong> set to your project's requirements. Deliverable formats are agreed during project setup so the BIM model drops straight into your workflow, and IFC is available in IFC2x3 or IFC4.</div>
       </details>
       <details class="faq-item" name="faqgroup">
-        <summary><span class="faq-q">Do you sign an NDA and offer a free trial?</span><span class="faq-chev"></span></summary>
+        <summary><h3 class="faq-q">Do you sign an NDA and offer a free trial?</h3><span class="faq-chev"></span></summary>
         <div class="faq-body">Yes. <strong>An NDA is signed on request, and a free trial model lets you assess BIM modeling quality on your own data before committing.</strong> Files move only through your dedicated PM, over secure channels.</div>
       </details>
       <details class="faq-item" name="faqgroup">
-        <summary><span class="faq-q">How long does a BIM modeling project take?</span><span class="faq-chev"></span></summary>
+        <summary><h3 class="faq-q">How long does a BIM modeling project take?</h3><span class="faq-chev"></span></summary>
         <div class="faq-body">A BIM modeling project's turnaround <strong>depends on building size, LOD and deliverable type, with on-time delivery the norm and a timeline confirmed against your scope up front.</strong> ViBIM returns a turnaround estimate within 12 to 24 hours of receiving your point cloud, and most projects run 1 to 3 weeks end to end.</div>
       </details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ §19 GUIDES (no money CTA) ============ -->
-<section class="sec reveal">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>BIM Modeling <span class="hl">Guides &amp; Insights</span></h2>
-      <div class="rm"><p class="rm-text">These BIM modeling guides go deeper on the decisions behind a project: choosing an LOD, preparing a point cloud, comparing CAD and BIM, and how to outsource Revit BIM modeling. The latest guides and insights are below:</p></div>
-    </div>
-    <!-- placeholder thumbnails (picsum) — swap for real guide featured images on WordPress; dates omitted (evergreen guides) -->
-    <div class="guide-blog">
-      <a class="gb-feat" href="/blog/what-is-scan-to-bim/">
-        <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-scan-to-bim/760/520')"></span>
-        <div class="gb-body">
-          <h3>What is Scan to BIM</h3>
-          <p>What scan to BIM is and how a point cloud becomes a QC-verified, parametric Revit model.</p>
-          <span class="gb-more">Read guide →</span>
-        </div>
-      </a>
-      <div class="gb-grid">
-        <a class="gb-card" href="/blog/cad-to-bim-conversion/">
-          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-cad-to-bim/360/200')"></span>
-          <div class="gb-body"><h4>CAD to BIM conversion</h4><p>How 2D CAD drawings are rebuilt into an intelligent BIM model.</p></div>
-        </a>
-        <a class="gb-card" href="/blog/how-to-outsource-revit-modeling/">
-          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-outsource/360/200')"></span>
-          <div class="gb-body"><h4>How to outsource Revit BIM modeling</h4><p>What to check before outsourcing Revit BIM modeling, and how to brief it.</p></div>
-        </a>
-        <a class="gb-card" href="/blog/bim-level-of-development/">
-          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-lod/360/200')"></span>
-          <div class="gb-body"><h4>BIM Level of Development guide</h4><p>What LOD 100 to 500 means, and how to choose the right level.</p></div>
-        </a>
-        <a class="gb-card" href="/blog/point-cloud-to-bim/">
-          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-p2b/360/200')"></span>
-          <div class="gb-body"><h4>Point cloud to BIM modeling</h4><p>How point cloud data becomes a parametric BIM model.</p></div>
-        </a>
-      </div>
     </div>
   </div>
 </section>
@@ -1902,7 +1867,7 @@ a{color:inherit;text-decoration:none}
         </ul>
       </div>
       <form class="quote-form" onsubmit="return false">
-        <h3>Request your free trial &amp; quote</h3>
+        <p class="qf-h">Request your free trial &amp; quote</p>
         <div class="field"><label for="q-name">Full name</label><input id="q-name" type="text" placeholder="Your name" required></div>
         <div class="field"><label for="q-email">Work email</label><input id="q-email" type="email" placeholder="you@company.com" required></div>
         <div class="field"><label for="q-company">Company</label><input id="q-company" type="text" placeholder="Company name"></div>
@@ -1910,6 +1875,45 @@ a{color:inherit;text-decoration:none}
         <button class="btn btn-primary" type="submit">Get a Free Trial <svg class="ar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         <p class="form-note">By submitting you agree to be contacted about your project. We never share your data. NDA available on request.</p>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §19 GUIDES (no money CTA) ============ -->
+<section class="sec reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>BIM Modeling <span class="hl">Guides &amp; Insights</span></h2>
+      <div class="rm"><p class="rm-text">These BIM modeling guides go deeper on the decisions behind a project: choosing an LOD, preparing a point cloud, comparing CAD and BIM, and how to outsource Revit BIM modeling. The latest guides and insights are below:</p></div>
+    </div>
+    <!-- placeholder thumbnails (picsum) — swap for real guide featured images on WordPress; dates omitted (evergreen guides) -->
+    <div class="guide-blog">
+      <a class="gb-feat" href="/blog/what-is-scan-to-bim/">
+        <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-scan-to-bim/760/520')"></span>
+        <div class="gb-body">
+          <p class="gb-h3">What is Scan to BIM</p>
+          <p>What scan to BIM is and how a point cloud becomes a QC-verified, parametric Revit model.</p>
+          <span class="gb-more">Read guide →</span>
+        </div>
+      </a>
+      <div class="gb-grid">
+        <a class="gb-card" href="/blog/cad-to-bim-conversion/">
+          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-cad-to-bim/360/200')"></span>
+          <div class="gb-body"><p class="gb-h4">CAD to BIM conversion</p><p>How 2D CAD drawings are rebuilt into an intelligent BIM model.</p></div>
+        </a>
+        <a class="gb-card" href="/blog/how-to-outsource-revit-modeling/">
+          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-outsource/360/200')"></span>
+          <div class="gb-body"><p class="gb-h4">How to outsource Revit BIM modeling</p><p>What to check before outsourcing Revit BIM modeling, and how to brief it.</p></div>
+        </a>
+        <a class="gb-card" href="/blog/bim-level-of-development/">
+          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-lod/360/200')"></span>
+          <div class="gb-body"><p class="gb-h4">BIM Level of Development guide</p><p>What LOD 100 to 500 means, and how to choose the right level.</p></div>
+        </a>
+        <a class="gb-card" href="/blog/point-cloud-to-bim/">
+          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-p2b/360/200')"></span>
+          <div class="gb-body"><p class="gb-h4">Point cloud to BIM modeling</p><p>How point cloud data becomes a parametric BIM model.</p></div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
