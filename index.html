@@ -139,7 +139,10 @@ a{color:inherit;text-decoration:none}
 .b-tip{position:absolute;left:50%;bottom:calc(100% + 10px);width:max(240px,100%);z-index:5;background:#fff;color:var(--ink);border:1px solid var(--line);font-size:13px;font-weight:400;line-height:1.5;text-align:center;padding:10px 14px;border-radius:8px;box-shadow:0 10px 30px -8px rgba(34,38,42,.28);opacity:0;visibility:hidden;transform:translateX(-50%) translateY(4px);transition:all .22s var(--ease)}
 .b-tip::after{content:"";position:absolute;left:50%;margin-left:-7px;top:100%;border:7px solid transparent;border-top-color:#fff;filter:drop-shadow(0 1px 0 var(--line))}
 .benefit:hover,.benefit:focus-within{z-index:30}/* lift the hovered benefit + its tooltip above the hero viewport image (fix tooltip-behind-image) */
-.benefit:hover .b-tip,.benefit:focus-within .b-tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.benefit:focus-within .b-tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+@media(hover:hover) and (pointer:fine){
+  .benefit:hover .b-tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+}
 
 /* standards (right col) */
 .standards-blk{border-top:1px solid var(--line);padding-top:16px}
@@ -176,7 +179,10 @@ a{color:inherit;text-decoration:none}
 /* Final logo tone is baked into assets/press/mono/*.png; keep render CSS layout-only. */
 .lg-tip{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translateX(-50%) translateY(4px);width:320px;background:#fff;color:var(--ink);border:1px solid var(--line);font-size:12.5px;font-weight:400;line-height:1.45;text-align:center;padding:9px 12px;border-radius:9px;box-shadow:0 12px 32px -8px rgba(34,38,42,.30);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease),visibility 0s .25s;z-index:6}
 .lg-tip::after{content:"";position:absolute;left:50%;margin-left:-7px;top:100%;border:7px solid transparent;border-top-color:#fff;filter:drop-shadow(0 1px 0 var(--line))}
-.logo-item:hover .lg-tip,.logo-item:focus-visible .lg-tip,.logo-item:focus-within .lg-tip{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:.05s}
+.logo-item:focus-visible .lg-tip,.logo-item:focus-within .lg-tip{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:.05s}
+@media(hover:hover) and (pointer:fine){
+  .logo-item:hover .lg-tip{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition-delay:.05s}
+}
 .lg-claim{display:block}
 .lg-link{display:inline;color:var(--orange);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .lg-link:hover,.lg-link:focus-visible{color:var(--navy)}
@@ -282,7 +288,10 @@ a{color:inherit;text-decoration:none}
 .bn-info{margin-top:3px;width:16px;height:16px;border-radius:50%;border:1px solid #dfe5ec;background:#fff;color:#aab4bf;font-size:9px;font-weight:700;font-family:var(--mono);display:grid;place-items:center;cursor:help;line-height:1;position:relative;transition:all .35s var(--ease)}
 .bn-item.is-active .bn-info{border-color:rgba(245,131,25,.55);color:var(--orange)}
 .bn-tip{position:absolute;bottom:calc(100% + 9px);left:50%;transform:translateX(-50%) translateY(4px);width:185px;background:#fff;color:var(--ink);border:1px solid var(--line);font-family:var(--sans);font-size:12px;font-weight:400;line-height:1.45;text-align:center;padding:8px 11px;border-radius:8px;box-shadow:0 10px 28px -10px rgba(34,38,42,.3);opacity:0;visibility:hidden;transition:all .2s var(--ease);z-index:6;white-space:normal}
-.bn-info:hover .bn-tip,.bn-info:focus .bn-tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.bn-info:focus .bn-tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+@media(hover:hover) and (pointer:fine){
+  .bn-info:hover .bn-tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+}
 .bn-tip::after{content:"";position:absolute;top:100%;left:50%;margin-left:-6px;border:6px solid transparent;border-top-color:#fff}
 
 /* ===== Section 5 — Disciplines (2×2 image-header cards + federated strip) ===== */
@@ -598,7 +607,10 @@ a{color:inherit;text-decoration:none}
 .sw-role{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
 /* tooltip ABOVE — full text lives in DOM (crawlable); revealed on hover/focus (tap = focus on mobile) */
 .sw-tip{position:absolute;bottom:calc(100% + 15px);left:50%;width:230px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 42px -14px rgba(10,37,64,.42);padding:14px 16px;opacity:0;visibility:hidden;pointer-events:none;transform:translate(calc(-50% + var(--shift,0px)),8px);transition:opacity .25s var(--ease),transform .25s var(--ease);z-index:6}
-.sw-card:hover .sw-tip,.sw-card:focus .sw-tip,.sw-card:focus-within .sw-tip{opacity:1;visibility:visible;transform:translate(calc(-50% + var(--shift,0px)),0)}
+.sw-card:focus .sw-tip,.sw-card:focus-within .sw-tip{opacity:1;visibility:visible;transform:translate(calc(-50% + var(--shift,0px)),0)}
+@media(hover:hover) and (pointer:fine){
+  .sw-card:hover .sw-tip{opacity:1;visibility:visible;transform:translate(calc(-50% + var(--shift,0px)),0)}
+}
 .sw-tip::after{content:"";position:absolute;top:100%;left:calc(50% - var(--shift,0px));transform:translateX(-50%);border:8px solid transparent;border-top-color:#fff}
 .sw-tip h5{font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:6px}
 .sw-tip p{font-size:12px;color:var(--ink);line-height:1.5;margin:0}
@@ -775,7 +787,10 @@ a{color:inherit;text-decoration:none}
 .exp-name,.exp-role{display:inline}
 .exp-meta .rl{font-size:12.5px;color:rgba(255,255,255,.9);margin-top:3px}
 .exp-hover{position:absolute;inset:0;background:rgba(12,13,15,.92);color:#fff;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;text-align:center;opacity:0;visibility:hidden;transform:scale(1.02);transition:all .3s var(--ease)}
-.exp:hover .exp-hover,.exp:focus-within .exp-hover{opacity:1;visibility:visible;transform:none}
+.exp:focus-within .exp-hover{opacity:1;visibility:visible;transform:none}
+@media(hover:hover) and (pointer:fine){
+  .exp:hover .exp-hover{opacity:1;visibility:visible;transform:none}
+}
 .exp-hover .nm{font-weight:700;font-size:15.5px;margin-bottom:8px}
 .exp-hover p{font-size:13px;line-height:1.55;color:#fff}
 .exp-hover a{margin-top:13px;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;font-size:13.5px}
@@ -796,7 +811,10 @@ a{color:inherit;text-decoration:none}
 .ind-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--bg-soft)}
 .ind-cap{background:var(--orange);color:#fff;font-weight:700;font-size:16px;text-align:center;padding:15px 14px;min-height:60px;display:flex;align-items:center;justify-content:center}
 .ind-tip{position:absolute;left:0;right:0;top:0;bottom:60px;background:rgba(16,19,21,.93);color:#fff;padding:22px 20px;display:flex;align-items:center;text-align:center;font-size:14px;line-height:1.55;opacity:0;visibility:hidden;transition:opacity .25s var(--ease),visibility .25s var(--ease)}
-.ind-card:hover .ind-tip,.ind-card:focus .ind-tip,.ind-card:focus-within .ind-tip{opacity:1;visibility:visible}
+.ind-card:focus .ind-tip,.ind-card:focus-within .ind-tip{opacity:1;visibility:visible}
+@media(hover:hover) and (pointer:fine){
+  .ind-card:hover .ind-tip{opacity:1;visibility:visible}
+}
 .ind-card:focus-visible{outline:2px solid var(--orange-dk);outline-offset:2px}
 
 /* ===== §14 where used (two-column: image left + synced accordion right, Sutliff-style) ===== */
@@ -1525,37 +1543,37 @@ body.demo-modal-open{overflow:hidden}
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="11" data-suf="+">11+</strong>
         <strong class="bn-label">years</strong>
-        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">delivering BIM modeling and outsourcing services since 2014.</span></button>
+        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">Delivering BIM modeling and outsourcing services since 2014.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="1000" data-suf="+">1,000+</strong>
         <strong class="bn-label">projects delivered</strong>
-        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">for survey and AEC firms across five markets.</span></button>
+        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">For survey and AEC firms across five markets.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="5" data-suf="+">5+</strong>
         <strong class="bn-label">countries served</strong>
-        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">the US, UK, Canada, Australia and the EU, all delivered remotely.</span></button>
+        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">The US, UK, Canada, Australia and the EU, all delivered remotely.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="99" data-suf="%">99%</strong>
         <strong class="bn-label">on-time delivery</strong>
-        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">projects delivered on or before the agreed deadline.</span></button>
+        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">Projects delivered on or before the agreed deadline.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="80" data-suf="%">80%</strong>
         <strong class="bn-label">client retention</strong>
-        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">clients who have kept working with ViBIM over five years.</span></button>
+        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">Clients who have kept working with ViBIM over five years.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="30" data-suf="%">30%</strong>
         <strong class="bn-label">faster turnaround</strong>
-        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">than the market average, through automation and Revit API workflows.</span></button>
+        <button class="bn-info" aria-label="Detail">i<span class="bn-tip">Than the market average, through automation and Revit API workflows.</span></button>
       </div>
     </div>
   </div>
@@ -2683,6 +2701,23 @@ function autoSlide(railId,interval){
     b.addEventListener('click',()=>{ const rail=document.getElementById(b.dataset.rail);
       if(rail){const card=rail.firstElementChild;const step=card?card.getBoundingClientRect().width+18:340;rail.scrollBy({left:step*Number(b.dataset.dir),behavior:'smooth'});} });
   });
+})();
+
+/* Dong tooltip khi cham ra cho khac.
+   Tren man cham, cham vao nut se de lai :focus va trinh duyet khong phai luc nao
+   cung tu bo focus khi cham vung trong, nen tooltip dinh lai. Bo focus tuong minh. */
+(function(){
+  const NHOM='.bn-info,.sw-card,.benefit,.logo-item,.ind-card,.exp';
+  function bo(tru){
+    const a=document.activeElement;
+    if(!a||a===document.body) return;
+    const t=a.closest&&a.closest(NHOM);
+    if(t&&t!==tru) t.blur();
+  }
+  document.addEventListener('pointerdown',e=>{
+    bo(e.target.closest?e.target.closest(NHOM):null);
+  },true);
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') bo(null); });
 })();
 </script>
 </body>
