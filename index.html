@@ -804,17 +804,17 @@ a{color:inherit;text-decoration:none}
 .exp-rail::-webkit-scrollbar{display:none}
 .exp{position:relative;flex:0 0 calc((100% - 54px)/4);scroll-snap-align:start;border-radius:10px;overflow:hidden;aspect-ratio:1/1.18;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.22)}
 .exp>img{width:100%;height:100%;object-fit:cover;display:block}
-.exp-meta{position:absolute;left:0;right:0;bottom:0;min-height:88px;padding:38px 16px 16px;background:linear-gradient(transparent,rgba(10,10,12,.92));color:#fff;display:flex;align-items:flex-end}
-.exp-meta .nm{display:block;font-weight:700;font-size:16px;line-height:1.35;color:#fff}
-.exp-name,.exp-role{display:inline}
+.exp-meta{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(transparent,rgba(10,10,12,.8));color:#fff}
+.exp-meta .nm{font-weight:700;font-size:16px;line-height:1.2}
 .exp-meta .rl{font-size:12.5px;color:rgba(255,255,255,.9);margin-top:3px}
-.exp-hover{position:absolute;inset:0;background:rgba(12,13,15,.92);color:#fff;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;text-align:center;opacity:0;visibility:hidden;transform:scale(1.02);transition:all .3s var(--ease)}
+.exp-hover{position:absolute;inset:0;background:#0c0d0f;color:#fff;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;text-align:center;opacity:0;visibility:hidden;transform:scale(1.02);transition:all .3s var(--ease)}
 .exp:focus-within .exp-hover{opacity:1;visibility:visible;transform:none}
 @media(hover:hover) and (pointer:fine){
   .exp:hover .exp-hover{opacity:1;visibility:visible;transform:none}
 }
 .exp-hover .nm{font-weight:700;font-size:15.5px;margin-bottom:8px}
 .exp-hover p{font-size:13px;line-height:1.55;color:#fff}
+.exp-hover .exp-allink{align-self:center}
 .exp-hover a{margin-top:13px;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;font-size:13.5px}
 .exp-controls{display:flex;align-items:center;gap:20px;margin-top:18px}
 .exp-nav{display:flex;gap:10px;flex:0 0 auto}
@@ -993,6 +993,8 @@ a{color:inherit;text-decoration:none}
 .quote-trust{list-style:none;display:flex;flex-direction:column;gap:11px}
 .quote-trust li{display:flex;gap:11px;align-items:center;font-size:14.5px;color:rgba(255,255,255,.9)}
 .quote-trust svg{flex:0 0 auto;width:20px;height:20px;stroke:var(--orange);stroke-width:2.2;fill:none}
+.vb-formframe{width:100%!important;border:0;display:block;min-height:430px;overflow:hidden;background:transparent}
+.vb-formframe-modal{min-height:430px}
 .quote-form{background:#fff;border-radius:14px;padding:30px;box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06)}
 .quote-form .qf-h{color:var(--head);font-size:19px;font-weight:800;margin-bottom:18px}
 .field{margin-bottom:14px}
@@ -1960,27 +1962,27 @@ body.demo-modal-open{overflow:hidden}
       <div class="exp-rail" id="expRail">
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/pham-thanh-master-of-point-cloud-modeling--649x1024.jpg" alt="Pham Thanh, Founder and CEO at ViBIM" loading="lazy" width="649" height="1024">
-          <div class="exp-meta"><strong class="nm"><span class="exp-name">Pham Thanh</span> <span class="exp-role">· Founder &amp; CEO</span></strong></div>
+          <div class="exp-meta"><div class="nm">Pham Thanh</div><div class="rl">Founder &amp; CEO</div></div>
           <div class="exp-hover"><p>Pham Thanh is the founder and CEO of ViBIM, which he grew from three employees into a 30-strong BIM outsourcing team. Contributed to Vietnam's first national BIM Guidelines (Ministry of Construction, 2017). MBA, Solvay Brussels School of Economics and Management (2012); Bachelor of Architecture, ABAC University (2008); BIM Management Certificate, BCA Academy, Singapore (2014).</p><a href="https://vibimglobal.com/ceo-pham-thanh/" target="_blank" rel="noopener">Learn More</a></div>
         </article>
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/do-van-yen-649x1024.jpg" alt="Do Van Yen, Architectural Team Leader at ViBIM" loading="lazy" width="649" height="1024">
-          <div class="exp-meta"><strong class="nm"><span class="exp-name">Do Van Yen</span> <span class="exp-role">· Architectural Team Leader</span></strong></div>
+          <div class="exp-meta"><div class="nm">Do Van Yen</div><div class="rl">Architectural Team Leader</div></div>
           <div class="exp-hover"><p>Do Van Yen is ViBIM's Architectural Team Leader and one of its first three specialists, working with the founder since 2011. Has led architectural BIM modeling since 2014 and helped build the company's Scan to BIM services and standards from the start. Civil Engineering, University of Transport and Communications.</p></div>
         </article>
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/nguyen-tien-trung-649x1024.jpg" alt="Nguyen Tien Trung, Structural Team Leader at ViBIM" loading="lazy" width="649" height="1024">
-          <div class="exp-meta"><strong class="nm"><span class="exp-name">Nguyen Tien Trung</span> <span class="exp-role">· Structural Team Leader</span></strong></div>
+          <div class="exp-meta"><div class="nm">Nguyen Tien Trung</div><div class="rl">Structural Team Leader</div></div>
           <div class="exp-hover"><p>Nguyen Tien Trung is ViBIM's Structural Team Leader and manages the company's BIM standardization system, leading structural modeling on its largest, most complex projects. Construction Engineering, Hanoi University of Civil Engineering (2019).</p></div>
         </article>
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2026/08/truong-van-huong-mep-team-leader-vibim.jpg" alt="Truong Van Huong, MEP Team Leader at ViBIM" loading="lazy" width="384" height="478">
-          <div class="exp-meta"><strong class="nm"><span class="exp-name">Truong Van Huong</span> <span class="exp-role">· MEP Team Leader</span></strong></div>
+          <div class="exp-meta"><div class="nm">Truong Van Huong</div><div class="rl">MEP Team Leader</div></div>
           <div class="exp-hover"><p>Truong Van Huong is ViBIM's MEP Team Leader, leading mechanical, electrical and plumbing BIM modeling and coordination. Brings years of hands-on MEP design and implementation experience to large, complex project delivery. Bachelor's in Electrical Engineering, specializing in Electrical Systems (2018).</p></div>
         </article>
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/truong-quoc-trung-649x1024.jpg" alt="Truong Quoc Trung, Project Manager at ViBIM" loading="lazy" width="649" height="1024">
-          <div class="exp-meta"><strong class="nm"><span class="exp-name">Truong Quoc Trung</span> <span class="exp-role">· Project Manager</span></strong></div>
+          <div class="exp-meta"><div class="nm">Truong Quoc Trung</div><div class="rl">Project Manager</div></div>
           <div class="exp-hover"><p>Truong Quoc Trung is ViBIM's Project Manager and one of its first-generation modelers, with the company since 2018. Runs its medium to large-scale BIM projects end to end and mentors new modelers. Practical Engineer's degree in Civil Engineering, Construction Technical College No. 1 (2017).</p></div>
         </article>      </div>
       <div class="exp-controls">
@@ -2171,29 +2173,7 @@ body.demo-modal-open{overflow:hidden}
           <li><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>NDA on request · secure file transfer</li>
         </ul>
       </div>
-      <form class="quote-form" id="quoteDemoForm" novalidate>
-        <p class="qf-h">Request your free trial &amp; quote</p>
-        <div class="field">
-          <label for="quoteName">Full name</label>
-          <input id="quoteName" name="wpforms[fields][0]" type="text" placeholder="Your name" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="quoteEmail">Work email</label>
-          <input id="quoteEmail" name="wpforms[fields][4]" type="email" placeholder="you@company.com" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="quoteCompany">Company</label>
-          <input id="quoteCompany" name="wpforms[fields][5]" type="text" placeholder="Company name" autocomplete="organization">
-        </div>
-        <div class="field">
-          <label for="quoteInfo">Project details</label>
-          <textarea id="quoteInfo" name="wpforms[fields][2]" rows="4" placeholder="Building type, size (sq ft), LOD, deliverable formats, point cloud format..."></textarea>
-        </div>
-        <input type="hidden" name="wpforms[id]" value="170"><input type="hidden" name="wpforms[author]" value="1"><input type="hidden" name="wpforms[post_id]" value="9">
-        <button class="btn btn-primary" type="submit">Send message</button>
-        <p class="form-note">By submitting you agree to be contacted about your project. We never share your data. NDA available on request.</p>
-        <p class="demo-form-status" aria-live="polite"></p>
-      </form>
+      <div class="quote-form inline-demo-form"><iframe class="vb-formframe" src="https://vibimglobal.com/form-embed-free-trial/" title="Request your free trial and quote" loading="lazy" referrerpolicy="same-origin"></iframe></div>
     </div>
   </div>
 </section>
@@ -2330,29 +2310,7 @@ body.demo-modal-open{overflow:hidden}
 <div class="demo-modal" id="demoModal" hidden>
   <div class="demo-dialog" role="dialog" aria-modal="true" aria-label="Get a Free Demo form">
     <button class="demo-close" type="button" aria-label="Close form"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-    <form class="demo-form" id="demoForm" novalidate>
-      <div class="demo-form-grid">
-        <div class="demo-control"><label for="demoName">Name</label><input id="demoName" name="wpforms[fields][0]" type="text" placeholder="Name*" autocomplete="name" required></div>
-        <div class="demo-control"><label for="demoCompany">Company</label><input id="demoCompany" name="wpforms[fields][5]" type="text" placeholder="Company" autocomplete="organization"></div>
-        <div class="demo-control"><label for="demoEmail">Email</label><input id="demoEmail" name="wpforms[fields][4]" type="email" placeholder="Email*" autocomplete="email" required></div>
-        <div class="demo-control demo-phone-control"><label for="demoPhone">Phone or WhatsApp</label><input id="demoPhone" name="wpforms[fields][6]" type="tel" placeholder="Phone/Whatsapp" autocomplete="tel"></div>
-        <div class="demo-control"><label for="demoService">Select a service</label><select id="demoService" name="wpforms[fields][7]"><option value="" disabled selected>Select a service</option><option>Architecture BIM / Revit modeling</option><option>Structural BIM / Revit Modeling</option><option>MEP BIM / Revit Modeling</option><option>Topography BIM / Revit modeling</option><option>BIM Collaboration Using ACC</option><option>All building disciplines</option><option>Others - Please specify in description</option></select></div>
-        <div class="demo-control"><label for="demoProjectType">Select a project type</label><select id="demoProjectType" name="wpforms[fields][8]"><option value="" disabled selected>Select a project type</option><option>Residential Buildings</option><option>Healthcare Facilities</option><option>Industrial Buildings</option><option>Commercial &amp; Office Buildings</option><option>Educational Facilities</option><option>Heritage &amp; Cultural Buildings</option><option>Transportation Infrastructure</option><option>Recreation &amp; Public Spaces</option><option>Others</option></select></div>
-        <div class="demo-control"><label for="demoRegion">Where do you need services?</label><select id="demoRegion" name="wpforms[fields][9]"><option value="" disabled selected>Where do you need services?</option><option>United States (USA)</option><option>United Kingdom (UK)</option><option>Australia</option><option>Canada</option><option>European Union</option><option>Other</option></select></div>
-        <div class="demo-control"><label for="demoBudget">Project budget</label><input id="demoBudget" name="wpforms[fields][16]" type="text" placeholder="What is your project budget?"></div>
-        <div class="demo-control demo-control-full"><label for="demoInfo">Project information</label><textarea id="demoInfo" name="wpforms[fields][2]" placeholder="Project information"></textarea></div>
-      </div>
-      <div class="demo-checks">
-        <label class="demo-check"><input name="wpforms[fields][15][]" type="checkbox" value="I would like to have a free demo project"><span>I would like to have a free demo project</span></label>
-        <label class="demo-check"><input name="wpforms[fields][13][]" type="checkbox" value="I agree to ViBIM the terms and privacy policy*" required><span>I agree to ViBIM the terms and privacy policy*</span></label>
-        <label class="demo-check"><input name="wpforms[fields][14][]" type="checkbox" value="I want to receive news, tips from ViBIM via email, Unsubscribe anytime"><span>I want to receive news, tips from ViBIM via email, Unsubscribe anytime</span></label>
-      </div>
-      <input type="hidden" name="wpforms[id]" value="170">
-      <input type="hidden" name="wpforms[author]" value="1">
-      <input type="hidden" name="wpforms[post_id]" value="9">
-      <div class="demo-submit-wrap"><button class="demo-submit" type="submit">Send message</button></div>
-      <p class="demo-form-status" aria-live="polite"></p>
-    </form>
+    <iframe class="vb-formframe vb-formframe-modal" src="https://vibimglobal.com/form-embed-free-trial/" title="Request your free trial and quote" loading="lazy" referrerpolicy="same-origin"></iframe>
   </div>
 </div>
 
@@ -2747,6 +2705,31 @@ function autoSlide(railId,interval){
   },true);
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') bo(null); });
 })();
+</script>
+<script>
+function setFrameHeight(f,h){ if(h>80) f.style.height=(h+8)+'px'; }
+function fitFormFrames(){
+  document.querySelectorAll('.vb-formframe').forEach(function(f){
+    try{
+      var d=f.contentDocument; if(!d||!d.body) return;
+      
+      var b=d.body,h=b.scrollHeight,k=b.children;
+      for(var i=0;i<k.length;i++){ var v=k[i].getBoundingClientRect().bottom; if(v>h) h=v; }
+      setFrameHeight(f,Math.ceil(h));
+    }catch(e){}
+  });
+}
+window.addEventListener('message',function(e){
+  var h=e.data&&e.data.vbFormHeight;
+  if(typeof h!=='number') return;
+  document.querySelectorAll('.vb-formframe').forEach(function(f){
+    if(f.contentWindow===e.source) setFrameHeight(f,h);
+  });
+});
+document.querySelectorAll('.vb-formframe').forEach(function(f){
+  f.addEventListener('load',function(){ fitFormFrames(); var n=0;
+    var t=setInterval(function(){ fitFormFrames(); if(++n>20) clearInterval(t); },500); });
+});
 </script>
 </body>
 </html>
