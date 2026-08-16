@@ -134,6 +134,7 @@ a{color:inherit;text-decoration:none}
 .benefit{position:relative;display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:500;color:var(--navy)}
 .benefit .chk{flex:0 0 20px;width:20px;height:20px;border-radius:50%;background:var(--orange);display:grid;place-items:center;box-shadow:0 2px 6px -2px rgba(245,131,25,.6)}
 .benefit .chk svg{width:12px;height:12px;stroke:#fff;stroke-width:3;fill:none}
+.b-label{flex:1 1 auto}
 .b-info{flex:0 0 auto;width:16px;height:16px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--muted);font-size:10px;font-weight:700;font-family:var(--mono);display:grid;place-items:center;cursor:help;line-height:1}
 .b-tip{position:absolute;left:50%;bottom:calc(100% + 10px);width:max(240px,100%);z-index:5;background:#fff;color:var(--ink);border:1px solid var(--line);font-size:13px;font-weight:400;line-height:1.5;text-align:center;padding:10px 14px;border-radius:8px;box-shadow:0 10px 30px -8px rgba(34,38,42,.28);opacity:0;visibility:hidden;transform:translateX(-50%) translateY(4px);transition:all .22s var(--ease)}
 .b-tip::after{content:"";position:absolute;left:50%;margin-left:-7px;top:100%;border:7px solid transparent;border-top-color:#fff;filter:drop-shadow(0 1px 0 var(--line))}
@@ -496,6 +497,7 @@ a{color:inherit;text-decoration:none}
   .rm-body p{font-size:15.5px}
   .benefits{order:5;grid-template-columns:1fr;gap:11px;margin:14px 0 22px}
   .benefit{justify-content:center}
+  .b-label{flex:0 1 auto}
   .rm-label{display:flex;justify-content:center}
   .cta-row{order:6;margin:0 0 22px}
   .btn{width:100%;justify-content:center}
