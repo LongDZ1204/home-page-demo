@@ -72,7 +72,7 @@ a{color:inherit;text-decoration:none}
 .h1 .hl{color:var(--orange)}/* orange TEXT only, no marker bg */
 .intro{position:relative}
 .intro p{font-size:16.5px;color:var(--ink);margin-bottom:14px;max-width:37em;text-align:justify;text-justify:inter-word}
-.intro p strong{font-weight:700;color:var(--orange)}
+.intro p strong{font-weight:700;color:var(--head)}
 /* Koray compression: đ.1 visible, đ.2 collapsed — sẵn-DOM (crawlable) */
 .rm-toggle{position:absolute;width:0;height:0;opacity:0;pointer-events:none}
 .rm-body{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
@@ -216,7 +216,7 @@ a{color:inherit;text-decoration:none}
 .slider-arrow:hover{border-color:var(--orange);color:var(--orange)}
 .slider-arrow svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;fill:none}
 .slider-progress{flex:1;height:4px;border-radius:4px;background:var(--line);overflow:hidden;position:relative}
-.slider-progress-fill{position:absolute;left:0;top:0;height:100%;width:33%;background:var(--orange);border-radius:4px;transition:width .12s linear}
+.slider-progress-fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--orange);border-radius:4px;transition:width .12s linear}
 /* email card (Tab 1) — thumbnail, click → lightbox */
 .email-card{flex:0 0 300px;scroll-snap-align:start;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow-sm);overflow:hidden;cursor:zoom-in;transition:transform .25s var(--ease),box-shadow .25s;color:inherit}
 .email-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
@@ -770,8 +770,9 @@ a{color:inherit;text-decoration:none}
 .exp-rail::-webkit-scrollbar{display:none}
 .exp{position:relative;flex:0 0 calc((100% - 54px)/4);scroll-snap-align:start;border-radius:10px;overflow:hidden;aspect-ratio:1/1.18;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.22)}
 .exp>img{width:100%;height:100%;object-fit:cover;display:block}
-.exp-meta{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(transparent,rgba(10,10,12,.8));color:#fff}
-.exp-meta .nm{font-weight:700;font-size:16px;line-height:1.2}
+.exp-meta{position:absolute;left:0;right:0;bottom:0;min-height:88px;padding:38px 16px 16px;background:linear-gradient(transparent,rgba(10,10,12,.92));color:#fff;display:flex;align-items:flex-end}
+.exp-meta .nm{display:block;font-weight:700;font-size:16px;line-height:1.35;color:#fff}
+.exp-name,.exp-role{display:inline}
 .exp-meta .rl{font-size:12.5px;color:rgba(255,255,255,.9);margin-top:3px}
 .exp-hover{position:absolute;inset:0;background:rgba(12,13,15,.92);color:#fff;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;text-align:center;opacity:0;visibility:hidden;transform:scale(1.02);transition:all .3s var(--ease)}
 .exp:hover .exp-hover,.exp:focus-within .exp-hover{opacity:1;visibility:visible;transform:none}
@@ -784,7 +785,7 @@ a{color:inherit;text-decoration:none}
 .exp-arrow:hover{border-color:var(--orange);color:var(--orange)}
 .exp-arrow svg{width:17px;height:17px;stroke:currentColor;stroke-width:2.2;fill:none}
 .exp-progress{flex:1;height:4px;border-radius:4px;background:var(--line);overflow:hidden;position:relative}
-.exp-progress-fill{position:absolute;left:0;top:0;height:100%;width:100%;background:var(--orange);border-radius:4px;transition:width .12s linear}
+.exp-progress-fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--orange);border-radius:4px;transition:width .12s linear}
 
 /* ===== §13 industry ===== */
 /* image-card slider (live "Industries We Served" pattern): arrows top-right, label bar, hover/tap reveals description */
@@ -935,9 +936,10 @@ a{color:inherit;text-decoration:none}
 .gb-card .gb-img{aspect-ratio:16/9}
 .gb-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .gb-feat .gb-body{padding:24px}
-.gb-body h3{font-size:21px;font-weight:800;color:var(--head);line-height:1.22;letter-spacing:-.01em}
-.gb-body h4{font-size:15.5px;font-weight:700;color:var(--head);line-height:1.3}
-.gb-body p{font-size:14px;color:var(--ink);line-height:1.55}
+.gb-h3{font-size:21px;font-weight:800;color:var(--head);line-height:1.22;letter-spacing:-.01em}
+.gb-h4{font-size:15.5px;font-weight:700;color:var(--head);line-height:1.3}
+.gb-excerpt{font-size:14px;color:var(--ink);line-height:1.55;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.gb-card .gb-excerpt{-webkit-line-clamp:2;font-size:13px}
 .gb-more{margin-top:auto;font-weight:600;font-size:14px;color:var(--blue)}
 .gb-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
@@ -1357,7 +1359,8 @@ body.demo-modal-open{overflow:hidden}
         <input type="checkbox" id="rm-intro" class="rm-toggle">
         <p class="intro-lead">Choosing the <strong>best Revit BIM modeling</strong> and outsourcing partner starts with what a buyer can actually compare: accuracy against the source scan, turnaround speed, and the QC behind every delivery. A skilled <strong>Revit BIM modeling team</strong> helps AEC and survey firms outsource modeling across every discipline, scale capacity to their project pipeline, and deliver coordinated as-built models on time. What separates a dependable <strong>Revit modeling service</strong> is verifiable QC standards, a real track record and genuine client reviews.</p>
         <div class="rm-body">
-          <p>ViBIM is a Revit BIM modeling and <strong>BIM outsourcing company</strong> specializing in scan to BIM conversion from point cloud data, with 250,000+ hours delivered since 2014 for survey and AEC firms across five markets, led by the United States. Its Revit BIM modeling services cover all four disciplines, architecture, structure, MEP and topography, delivered as as-built models and drawings, custom Revit families and facility-management data from a single point cloud to Revit workflow. Every model passes two independent QC layers against the source scan, checked to US and UK standards, at the LOD your project sets. Completed BIM modeling projects range from commercial complexes and hospitals to heritage churches and transport infrastructure, modeled for commercial, healthcare, industrial and heritage sectors. Projects ship on time, with turnaround faster than the market average. New clients start with a free trial and a fixed quote in 12 to 24 hours.</p>
+          <p>ViBIM is a Revit BIM modeling and <strong>BIM outsourcing company</strong> specializing in scan to BIM conversion from point cloud data, with 1,000+ projects delivered since 2014 and 80% of clients still working with it after five years. Eight Revit BIM modeling services span discipline modeling in architecture, structure, MEP and topography, plus the deliverables built from them, as-built models, drawings, custom Revit families and facility-management data. Every model passes two independent QC layers against the source scan, checked to US and UK standards, at the LOD your project sets.</p>
+          <p>Completed BIM modeling projects range from commercial complexes and hospitals to heritage churches and transport infrastructure. Those projects ship on or before the agreed deadline 99% of the time, with turnaround 30% faster than the market average through Revit API automation. Industry coverage spans commercial, healthcare, industrial and heritage buildings. New clients start with a free trial model and a fixed quote in 12 to 24 hours, delivered remotely across five markets led by the United States.</p>
         </div>
         <label for="rm-intro" class="rm-label"></label>
       </div>
@@ -1386,12 +1389,12 @@ body.demo-modal-open{overflow:hidden}
       </div>
 
       <ul class="benefits reveal">
-        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">Intelligent, data-rich models:</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">Every element is parametric and carries project data, so the model is ready for design, coordination and costing.</span></li>
-        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">All disciplines in one federated model:</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">Architecture, structure, MEP and topography are coordinated into one federated model, so trades stay aligned across the project.</span></li>
-        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">The full deliverable suite:</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">One source produces the as-built models, 2D drawings, custom Revit families and facility-management data.</span></li>
-        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">Outsourcing that scales:</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">A dedicated Revit team flexes with your project pipeline and adds modeling capacity without new hires.</span></li>
-        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">A fixed quote up front:</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">Every scope is priced within 12 to 24 hours, hourly or as a lump sum, before any commitment.</span></li>
-        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">Risk-free trial:</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">New clients receive a no-cost trial model before committing to the full scope.</span></li>
+        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">Intelligent, data-rich models</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">Every element is parametric and carries project data, so the model is ready for design, coordination and costing.</span></li>
+        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">All disciplines in one federated model</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">Architecture, structure, MEP and topography are coordinated into one federated model, so trades stay aligned across the project.</span></li>
+        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">The full deliverable suite</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">One source produces the as-built models, 2D drawings, custom Revit families and facility-management data.</span></li>
+        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">Outsourcing that scales</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">A dedicated Revit team flexes with your project pipeline and adds modeling capacity without new hires.</span></li>
+        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">A fixed quote up front</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">Every scope is priced within 12 to 24 hours, hourly or as a lump sum, before any commitment.</span></li>
+        <li class="benefit" tabindex="0"><span class="chk"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><strong class="b-label">Risk-free trial</strong><button class="b-info" aria-label="Detail">i</button><span class="b-tip" role="tooltip">New clients receive a no-cost trial model before committing to the full scope.</span></li>
       </ul>
 
     </div>
@@ -1407,36 +1410,36 @@ body.demo-modal-open{overflow:hidden}
       <!-- First set: logo is visual branding; the publication name is the inline anchor text. -->
       <div class="logo-item l-coruzant" tabindex="0" role="group" aria-label="Coruzant Technologies">
         <img class="lg-img" src="assets/press/mono/coruzant.png?v=1" alt="Coruzant Technologies logo" loading="lazy">
-        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://coruzant.com/infrastructure/scan-to-bim-dense-mep/" target="_blank" rel="noopener noreferrer"><b>Coruzant Technologies:</b></a> ViBIM scan to BIM case study, modeling ultra-dense MEP systems for a US factory.</span></span>
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://coruzant.com/infrastructure/scan-to-bim-dense-mep/" target="_blank" rel="nofollow noopener noreferrer"><b>Coruzant Technologies:</b></a> ViBIM scan to BIM case study, modeling ultra-dense MEP systems for a US factory.</span></span>
       </div>
       <div class="logo-item l-architects" tabindex="0" role="group" aria-label="The Architect's Diary">
         <img class="lg-img" src="assets/press/mono/the-architects-diary.png?v=1" alt="The Architect's Diary logo" loading="lazy">
-        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://thearchitectsdiary.com/what-is-a-federated-model-in-bim/" target="_blank" rel="noopener noreferrer"><b>The Architect's Diary:</b></a> ViBIM cited for point cloud to BIM expertise in federated BIM coordination.</span></span>
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://thearchitectsdiary.com/what-is-a-federated-model-in-bim/" target="_blank" rel="nofollow noopener noreferrer"><b>The Architect's Diary:</b></a> ViBIM cited for point cloud to BIM expertise in federated BIM coordination.</span></span>
       </div>
       <div class="logo-item l-bizzbuzz" tabindex="0" role="group" aria-label="BizzBuzz">
         <img class="lg-img" src="assets/press/mono/bizzbuzz.png?v=1" alt="BizzBuzz logo" loading="lazy">
-        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://www.bizzbuzz.news/industry/construction/vibim-revolutionizing-renovation-projects-with-scan-to-bim-precision-1382485" target="_blank" rel="noopener noreferrer"><b>BizzBuzz:</b></a> ViBIM cited for scan to BIM precision on renovation and retrofit projects.</span></span>
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://www.bizzbuzz.news/industry/construction/vibim-revolutionizing-renovation-projects-with-scan-to-bim-precision-1382485" target="_blank" rel="nofollow noopener noreferrer"><b>BizzBuzz:</b></a> ViBIM cited for scan to BIM precision on renovation and retrofit projects.</span></span>
       </div>
       <div class="logo-item l-techbullion" tabindex="0" role="group" aria-label="TechBullion">
         <img class="lg-img" src="assets/press/mono/techbullion.png?v=1" alt="TechBullion logo" loading="lazy">
-        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://techbullion.com/vibim-pro-tip-lod-300-vs-lod-350-which-one-do-you-actually-need/" target="_blank" rel="noopener noreferrer"><b>TechBullion:</b></a> ViBIM experts break down LOD 300 vs LOD 350 for scan to BIM models.</span></span>
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://techbullion.com/vibim-pro-tip-lod-300-vs-lod-350-which-one-do-you-actually-need/" target="_blank" rel="nofollow noopener noreferrer"><b>TechBullion:</b></a> ViBIM experts break down LOD 300 vs LOD 350 for scan to BIM models.</span></span>
       </div>
       <div class="logo-item l-urban" tabindex="0" role="group" aria-label="Urban Splatter">
         <img class="lg-img" src="assets/press/mono/urban-splatter.png?v=1" alt="Urban Splatter logo" loading="lazy">
-        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://www.urbansplatter.com/2026/03/how-to-choose-a-scan-to-bim-company/" target="_blank" rel="noopener noreferrer"><b>Urban Splatter:</b></a> ViBIM featured as a scan to BIM company across architecture, structure and MEP.</span></span>
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://www.urbansplatter.com/2026/03/how-to-choose-a-scan-to-bim-company/" target="_blank" rel="nofollow noopener noreferrer"><b>Urban Splatter:</b></a> ViBIM featured as a scan to BIM company across architecture, structure and MEP.</span></span>
       </div>
       <div class="logo-item l-today" tabindex="0" role="group" aria-label="Today News">
         <img class="lg-img" src="assets/press/mono/today-news.png?v=1" alt="Today News logo" loading="lazy">
-        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://todaynews.co.uk/2026/02/25/electrical-bim-modeling-benefits-and-how-scan-to-bim-helps/" target="_blank" rel="noopener noreferrer"><b>Today News:</b></a> ViBIM named a Revit outsourcing partner for electrical BIM modeling from point cloud data.</span></span>
+        <span class="lg-tip" role="tooltip"><span class="lg-claim"><a class="lg-link" href="https://todaynews.co.uk/2026/02/25/electrical-bim-modeling-benefits-and-how-scan-to-bim-helps/" target="_blank" rel="nofollow noopener noreferrer"><b>Today News:</b></a> ViBIM named a Revit outsourcing partner for electrical BIM modeling from point cloud data.</span></span>
       </div>
 
       <!-- Second set: visual duplicate keeps the marquee seamless; it is removed from the accessibility tree. -->
-      <div class="logo-item l-coruzant" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/coruzant.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://coruzant.com/infrastructure/scan-to-bim-dense-mep/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>Coruzant Technologies:</b></a> ViBIM scan to BIM case study, modeling ultra-dense MEP systems for a US factory.</span></span></div>
-      <div class="logo-item l-architects" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/the-architects-diary.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://thearchitectsdiary.com/what-is-a-federated-model-in-bim/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>The Architect's Diary:</b></a> ViBIM cited for point cloud to BIM expertise in federated BIM coordination.</span></span></div>
-      <div class="logo-item l-bizzbuzz" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/bizzbuzz.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://www.bizzbuzz.news/industry/construction/vibim-revolutionizing-renovation-projects-with-scan-to-bim-precision-1382485" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>BizzBuzz:</b></a> ViBIM cited for scan to BIM precision on renovation and retrofit projects.</span></span></div>
-      <div class="logo-item l-techbullion" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/techbullion.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://techbullion.com/vibim-pro-tip-lod-300-vs-lod-350-which-one-do-you-actually-need/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>TechBullion:</b></a> ViBIM experts break down LOD 300 vs LOD 350 for scan to BIM models.</span></span></div>
-      <div class="logo-item l-urban" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/urban-splatter.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://www.urbansplatter.com/2026/03/how-to-choose-a-scan-to-bim-company/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>Urban Splatter:</b></a> ViBIM featured as a scan to BIM company across architecture, structure and MEP.</span></span></div>
-      <div class="logo-item l-today" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/today-news.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://todaynews.co.uk/2026/02/25/electrical-bim-modeling-benefits-and-how-scan-to-bim-helps/" tabindex="-1" target="_blank" rel="noopener noreferrer"><b>Today News:</b></a> ViBIM named a Revit outsourcing partner for electrical BIM modeling from point cloud data.</span></span></div>
+      <div class="logo-item l-coruzant" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/coruzant.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://coruzant.com/infrastructure/scan-to-bim-dense-mep/" tabindex="-1" target="_blank" rel="nofollow noopener noreferrer"><b>Coruzant Technologies:</b></a> ViBIM scan to BIM case study, modeling ultra-dense MEP systems for a US factory.</span></span></div>
+      <div class="logo-item l-architects" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/the-architects-diary.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://thearchitectsdiary.com/what-is-a-federated-model-in-bim/" tabindex="-1" target="_blank" rel="nofollow noopener noreferrer"><b>The Architect's Diary:</b></a> ViBIM cited for point cloud to BIM expertise in federated BIM coordination.</span></span></div>
+      <div class="logo-item l-bizzbuzz" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/bizzbuzz.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://www.bizzbuzz.news/industry/construction/vibim-revolutionizing-renovation-projects-with-scan-to-bim-precision-1382485" tabindex="-1" target="_blank" rel="nofollow noopener noreferrer"><b>BizzBuzz:</b></a> ViBIM cited for scan to BIM precision on renovation and retrofit projects.</span></span></div>
+      <div class="logo-item l-techbullion" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/techbullion.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://techbullion.com/vibim-pro-tip-lod-300-vs-lod-350-which-one-do-you-actually-need/" tabindex="-1" target="_blank" rel="nofollow noopener noreferrer"><b>TechBullion:</b></a> ViBIM experts break down LOD 300 vs LOD 350 for scan to BIM models.</span></span></div>
+      <div class="logo-item l-urban" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/urban-splatter.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://www.urbansplatter.com/2026/03/how-to-choose-a-scan-to-bim-company/" tabindex="-1" target="_blank" rel="nofollow noopener noreferrer"><b>Urban Splatter:</b></a> ViBIM featured as a scan to BIM company across architecture, structure and MEP.</span></span></div>
+      <div class="logo-item l-today" aria-hidden="true" tabindex="-1"><img class="lg-img" src="assets/press/mono/today-news.png?v=1" alt="" loading="lazy"><span class="lg-tip"><span class="lg-claim"><a class="lg-link" href="https://todaynews.co.uk/2026/02/25/electrical-bim-modeling-benefits-and-how-scan-to-bim-helps/" tabindex="-1" target="_blank" rel="nofollow noopener noreferrer"><b>Today News:</b></a> ViBIM named a Revit outsourcing partner for electrical BIM modeling from point cloud data.</span></span></div>
     </div>
   </div>
 </section>
@@ -1494,6 +1497,10 @@ body.demo-modal-open{overflow:hidden}
         <div class="txt-card"><div class="txt-quote">&ldquo;</div><p class="txt-body">Hi Yen, Thanks again for the model, it was nicely done, especially the MEP part of it. The markups are mostly because of missing pits, gutter height issues, and floor height issues (the required tolerance was high, hence objects needed to be modelled within 15mm of the point cloud).</p><div class="txt-meta"><span class="txt-ini">T</span><div class="txt-who">Mr.Tot</div></div></div>
         <div class="txt-card"><div class="txt-quote">&ldquo;</div><p class="txt-body">Overall, we are happy, and the turnaround times and communication have worked well for us. We do normally use Google Sheets to highlight any QA or general questions but didn't have time to set everything up on these last projects. Saves us sending a folder with loads of screen grabs and allows your team to ask questions easier. Will look at setting up going forward. As it stands, we are looking to be busy on the run up to the Christmas break so if any other projects land between now and then we will send over for some costs.</p><div class="txt-meta"><span class="txt-ini">P</span><div class="txt-who">Mr.Pete</div></div></div>
         <div class="txt-card"><div class="txt-quote">&ldquo;</div><p class="txt-body">Good morning Son, I have now checked the model and I am happy that it is complete. There were a few amends that were done internally but the model looks great, thanks. Kind regards.</p><div class="txt-meta"><span class="txt-ini">W</span><div class="txt-who">Mr.Wa</div></div></div>
+        <div class="txt-card"><div class="txt-quote">&ldquo;</div><p class="txt-body">Hi Trung,<br><br>This was delivered to the client – thank you for making the updates so quickly.<br><br>We have an action on our side to provide more guidance to you on MEP drawings and how they are best presented.<br><br>Regards,</p><div class="txt-meta"><span class="txt-ini">D</span><div class="txt-who">Mr.Dan</div></div></div>
+        <div class="txt-card"><div class="txt-quote">&ldquo;</div><p class="txt-body">Good Afternoon Trung,<br><br>Thank you very much for this model and return of comments.<br><br>We have sent this off for client review and comment. Please feel free to raise invoice.<br>Very good model overall with little to no errors/issues.<br><br>Thank you again and have a good weekend.<br><br>Kind regards,</p><div class="txt-meta"><span class="txt-ini">K</span><div class="txt-who">Mr.Kiera</div></div></div>
+        <div class="txt-card"><div class="txt-quote">&ldquo;</div><p class="txt-body">Hello Trung,<br><br>I’m very pleased to confirm that this project is fully delivered, and we have received a 5/5 rating (excellent) on the quality of the deliverables from the client team.<br><br>Many thanks to the team at ViBIM!</p><div class="txt-meta"><span class="txt-ini">J</span><div class="txt-who">Mr.Jac</div></div></div>
+        <div class="txt-card"><div class="txt-quote">&ldquo;</div><p class="txt-body">ViBIM consistently delivers on time — often ahead of schedule — helping us stay on track and maintain strong client relationships. Their BIM models are highly accurate and reliable. Communication is always fast, even outside regular hours. We truly value their commitment to continuous improvement and smart use of technology. If you’re looking for a dependable Scan to BIM partner, ViBIM is the team you can trust.</p><div class="txt-meta"><span class="txt-ini">R</span><div><div class="txt-who">Reality capture Manager</div><div class="txt-role">United State</div></div></div></div>
       </div>
       <div class="slider-dots" id="wordsDots" role="tablist" aria-label="Testimonials pagination"></div>
     </div>
@@ -1517,37 +1524,37 @@ body.demo-modal-open{overflow:hidden}
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="11" data-suf="+">11+</strong>
-        <strong class="bn-label">years:</strong>
+        <strong class="bn-label">years</strong>
         <button class="bn-info" aria-label="Detail">i<span class="bn-tip">delivering BIM modeling and outsourcing services since 2014.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="1000" data-suf="+">1,000+</strong>
-        <strong class="bn-label">projects delivered:</strong>
+        <strong class="bn-label">projects delivered</strong>
         <button class="bn-info" aria-label="Detail">i<span class="bn-tip">for survey and AEC firms across five markets.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="5" data-suf="+">5+</strong>
-        <strong class="bn-label">countries served:</strong>
+        <strong class="bn-label">countries served</strong>
         <button class="bn-info" aria-label="Detail">i<span class="bn-tip">the US, UK, Canada, Australia and the EU, all delivered remotely.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="99" data-suf="%">99%</strong>
-        <strong class="bn-label">on-time delivery:</strong>
+        <strong class="bn-label">on-time delivery</strong>
         <button class="bn-info" aria-label="Detail">i<span class="bn-tip">projects delivered on or before the agreed deadline.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="80" data-suf="%">80%</strong>
-        <strong class="bn-label">client retention:</strong>
+        <strong class="bn-label">client retention</strong>
         <button class="bn-info" aria-label="Detail">i<span class="bn-tip">clients who have kept working with ViBIM over five years.</span></button>
       </div>
       <div class="bn-item">
         <span class="bn-node"></span>
         <strong class="bn-num" data-target="30" data-suf="%">30%</strong>
-        <strong class="bn-label">faster turnaround:</strong>
+        <strong class="bn-label">faster turnaround</strong>
         <button class="bn-info" aria-label="Detail">i<span class="bn-tip">than the market average, through automation and Revit API workflows.</span></button>
       </div>
     </div>
@@ -1694,7 +1701,7 @@ body.demo-modal-open{overflow:hidden}
       <p class="cta-title">Need Revit BIM modeling across every discipline?</p>
       <p class="cta-sub">Send us your point cloud for a free trial model, no commitment.</p>
       <div class="cta-actions">
-        <a class="cta-btn cta-btn-primary" href="#quote">Request a Free Trial
+        <a class="cta-btn cta-btn-primary js-open-demo" href="#demoModal" aria-haspopup="dialog">Request a Free Trial
           <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
@@ -1764,7 +1771,7 @@ body.demo-modal-open{overflow:hidden}
         <p class="ql-cta-h">Need an as-built BIM delivered to your standards at a defined LOD?</p>
       </div>
       <div class="ql-cta-actions">
-        <a class="ql-btn primary" href="#quote">Request a Quote</a>
+        <a class="ql-btn primary js-open-demo" href="#demoModal" aria-haspopup="dialog">Request a Quote</a>
       </div>
     </div>
   </div>
@@ -1907,27 +1914,27 @@ body.demo-modal-open{overflow:hidden}
       <div class="exp-rail" id="expRail">
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/pham-thanh-master-of-point-cloud-modeling--scaled.jpg" alt="Pham Thanh, Founder and CEO at ViBIM">
-          <div class="exp-meta"><strong class="nm">Pham Thanh · Founder &amp; CEO</strong></div>
+          <div class="exp-meta"><strong class="nm"><span class="exp-name">Pham Thanh</span> <span class="exp-role">· Founder &amp; CEO</span></strong></div>
           <div class="exp-hover"><p>Pham Thanh is the founder and CEO of ViBIM, which he grew from three employees into a 30-strong BIM outsourcing team. Contributed to Vietnam's first national BIM Guidelines (Ministry of Construction, 2017). MBA, Solvay Brussels School of Economics and Management (2012); Bachelor of Architecture, ABAC University (2008); BIM Management Certificate, BCA Academy, Singapore (2014).</p><a href="https://vibimglobal.com/ceo-pham-thanh/" target="_blank" rel="noopener">Learn More</a></div>
         </article>
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/do-van-yen-scaled.jpg" alt="Do Van Yen, Architectural Team Leader at ViBIM">
-          <div class="exp-meta"><strong class="nm">Do Van Yen · Architectural Team Leader</strong></div>
+          <div class="exp-meta"><strong class="nm"><span class="exp-name">Do Van Yen</span> <span class="exp-role">· Architectural Team Leader</span></strong></div>
           <div class="exp-hover"><p>Do Van Yen is ViBIM's Architectural Team Leader and one of its first three specialists, working with the founder since 2011. Has led architectural BIM modeling since 2014 and helped build the company's Scan to BIM services and standards from the start. Civil Engineering, University of Transport and Communications.</p></div>
         </article>
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/nguyen-tien-trung-scaled.jpg" alt="Nguyen Tien Trung, Structural Team Leader at ViBIM">
-          <div class="exp-meta"><strong class="nm">Nguyen Tien Trung · Structural Team Leader</strong></div>
+          <div class="exp-meta"><strong class="nm"><span class="exp-name">Nguyen Tien Trung</span> <span class="exp-role">· Structural Team Leader</span></strong></div>
           <div class="exp-hover"><p>Nguyen Tien Trung is ViBIM's Structural Team Leader and manages the company's BIM standardization system, leading structural modeling on its largest, most complex projects. Construction Engineering, Hanoi University of Civil Engineering (2019).</p></div>
         </article>
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/DSC07865-1.png" alt="Truong Van Huong, MEP Team Leader at ViBIM">
-          <div class="exp-meta"><strong class="nm">Truong Van Huong · MEP Team Leader</strong></div>
+          <div class="exp-meta"><strong class="nm"><span class="exp-name">Truong Van Huong</span> <span class="exp-role">· MEP Team Leader</span></strong></div>
           <div class="exp-hover"><p>Truong Van Huong is ViBIM's MEP Team Leader, leading mechanical, electrical and plumbing BIM modeling and coordination. Brings years of hands-on MEP design and implementation experience to large, complex project delivery. Bachelor's in Electrical Engineering, specializing in Electrical Systems (2018).</p></div>
         </article>
         <article class="exp" tabindex="0">
           <img src="https://vibimglobal.com/wp-content/uploads/2025/06/truong-quoc-trung-scaled.jpg" alt="Truong Quoc Trung, Project Manager at ViBIM">
-          <div class="exp-meta"><strong class="nm">Truong Quoc Trung · Project Manager</strong></div>
+          <div class="exp-meta"><strong class="nm"><span class="exp-name">Truong Quoc Trung</span> <span class="exp-role">· Project Manager</span></strong></div>
           <div class="exp-hover"><p>Truong Quoc Trung is ViBIM's Project Manager and one of its first-generation modelers, with the company since 2018. Runs its medium to large-scale BIM projects end to end and mentors new modelers. Practical Engineer's degree in Civil Engineering, Construction Technical College No. 1 (2017).</p></div>
         </article>      </div>
       <div class="exp-controls">
@@ -1954,47 +1961,47 @@ body.demo-modal-open{overflow:hidden}
 
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/07/revit-as-built-modelling-for-office-blocks-uk.jpg" alt="Commercial and office BIM modeling by ViBIM">
-        <strong class="ind-cap">Commercial &amp; Office:</strong>
+        <strong class="ind-cap">Commercial &amp; Office</strong>
         <div class="ind-tip" role="tooltip">3D BIM modeling for commercial buildings captures core, shell and interior fit-out for as-built records and tenant changes.</div>
       </div>
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/06/project-type-office-scaled.jpg" alt="Residential BIM modeling by ViBIM">
-        <strong class="ind-cap">Residential:</strong>
+        <strong class="ind-cap">Residential</strong>
         <div class="ind-tip" role="tooltip">Residential BIM modeling covers multi-unit and single-home as-builts for renovation and extension.</div>
       </div>
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/06/project-type-hospital-scaled.jpg" alt="Healthcare BIM modeling by ViBIM">
-        <strong class="ind-cap">Healthcare:</strong>
+        <strong class="ind-cap">Healthcare</strong>
         <div class="ind-tip" role="tooltip">BIM modeling for healthcare facilities captures MEP-heavy clinical layouts for upgrades and compliance.</div>
       </div>
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/06/project-type-industrial-buildings.jpeg" alt="Industrial and manufacturing BIM modeling by ViBIM">
-        <strong class="ind-cap">Industrial &amp; Manufacturing:</strong>
+        <strong class="ind-cap">Industrial &amp; Manufacturing</strong>
         <div class="ind-tip" role="tooltip">Industrial BIM modeling captures plant, equipment and clearances for retrofit and clash coordination.</div>
       </div>
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/07/scan-to-bim-for-education-buildings-uk-scaled.jpg" alt="Education BIM modeling by ViBIM">
-        <strong class="ind-cap">Education:</strong>
+        <strong class="ind-cap">Education</strong>
         <div class="ind-tip" role="tooltip">BIM modeling for educational facilities documents campus buildings for space planning.</div>
       </div>
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/07/scan-to-bim-for-listed-buildings-uk-scaled.jpg" alt="Heritage and cultural BIM modeling by ViBIM">
-        <strong class="ind-cap">Heritage &amp; Cultural:</strong>
+        <strong class="ind-cap">Heritage &amp; Cultural</strong>
         <div class="ind-tip" role="tooltip">Heritage BIM modeling records detailed historic geometry for preservation.</div>
       </div>
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/06/project-type-train-station-scaled.jpg" alt="Transportation and infrastructure BIM modeling by ViBIM">
-        <strong class="ind-cap">Transportation &amp; Infrastructure:</strong>
+        <strong class="ind-cap">Transportation &amp; Infrastructure</strong>
         <div class="ind-tip" role="tooltip">Infrastructure BIM modeling captures structures and corridors for asset documentation.</div>
       </div>
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/09/revit-based-structural-modeling-for-an-intricate-roller-coaster-in-canada.jpg" alt="Hospitality and retail BIM modeling by ViBIM">
-        <strong class="ind-cap">Hospitality &amp; Retail:</strong>
+        <strong class="ind-cap">Hospitality &amp; Retail</strong>
         <div class="ind-tip" role="tooltip">Hospitality BIM modeling captures multi-site layouts for refurbishment rollout.</div>
       </div>
       <div class="ind-card" tabindex="0">
         <img src="https://vibimglobal.com/wp-content/uploads/2025/07/mep-bim-services-for-industrial-facilities-usa-1.jpg" alt="Data center BIM modeling by ViBIM">
-        <strong class="ind-cap">Data Center:</strong>
+        <strong class="ind-cap">Data Center</strong>
         <div class="ind-tip" role="tooltip">Data-center BIM modeling captures racks, MEP and clearances for capacity planning.</div>
       </div>
 
@@ -2046,8 +2053,7 @@ body.demo-modal-open{overflow:hidden}
         <p class="cta-h">Ready to scope your BIM modeling project?</p>
         <p>Get a fixed quote in 12 to 24 hours, plus a free trial model first.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href="#quote">Get a Free Trial <svg class="ar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-outline-white" href="#quote">Request a Quote</a>
+          <a class="btn btn-primary js-open-demo" href="#demoModal" aria-haspopup="dialog">Get a Free Trial <svg class="ar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </div>
@@ -2138,7 +2144,7 @@ body.demo-modal-open{overflow:hidden}
           <textarea id="quoteInfo" name="wpforms[fields][2]" rows="4" placeholder="Building type, size (sq ft), LOD, deliverable formats, point cloud format..."></textarea>
         </div>
         <input type="hidden" name="wpforms[id]" value="170"><input type="hidden" name="wpforms[author]" value="1"><input type="hidden" name="wpforms[post_id]" value="9">
-        <button class="btn btn-primary" type="submit">Get a Free Trial <svg class="ar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button class="btn btn-primary" type="submit">Send message</button>
         <p class="form-note">By submitting you agree to be contacted about your project. We never share your data. NDA available on request.</p>
         <p class="demo-form-status" aria-live="polite"></p>
       </form>
@@ -2153,30 +2159,43 @@ body.demo-modal-open{overflow:hidden}
       <h2>BIM Modeling <span class="hl">Guides &amp; Insights</span></h2>
       <div class="rm"><p class="rm-text">These BIM modeling guides go deeper on the decisions behind a project: choosing an LOD, preparing a point cloud, comparing CAD and BIM, and how to outsource Revit BIM modeling. The latest guides and insights are below:</p></div>
     </div>
-    <!-- placeholder thumbnails (picsum) — swap for real guide featured images on WordPress; dates omitted (evergreen guides) -->
+    <!-- Featured images and opening sentences are synced from the five live ViBIM articles. -->
     <div class="guide-blog">
-      <a class="gb-feat" href="/blog/cad-to-bim-conversion/">
-        <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-cad-to-bim/760/520')"></span>
+      <a class="gb-feat" href="https://vibimglobal.com/blog/how-to-outsource-revit-modeling/">
+        <span class="gb-img" role="img" aria-label="How to outsource Revit BIM modeling" style="background-image:url('https://vibimglobal.com/wp-content/uploads/2025/07/outsourcing-revit-projects-checklist.jpeg')"></span>
         <div class="gb-body">
-          <p class="gb-h3">CAD to BIM conversion</p>
+          <p class="gb-h3">How to Outsource Revit BIM Modeling: Your Comprehensive Guide to Choosing the Right Partner</p>
+          <p class="gb-excerpt">Finding a reputable Revit BIM Modeling Service Provider is crucial for the success of any modern architecture, engineering, or construction (AEC) project.</p>
         </div>
       </a>
       <div class="gb-grid">
-        <a class="gb-card" href="/blog/what-is-scan-to-bim/">
-          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-scan-to-bim/360/200')"></span>
-          <div class="gb-body"><p class="gb-h4">What is Scan to BIM</p></div>
+        <a class="gb-card" href="https://vibimglobal.com/blog/what-is-scan-to-bim/">
+          <span class="gb-img" role="img" aria-label="Scan to BIM model generated from a 3D point cloud" style="background-image:url('https://vibimglobal.com/wp-content/uploads/2025/06/3d-point-cloud-to-bim.jpg')"></span>
+          <div class="gb-body">
+            <p class="gb-h4">What is Scan to BIM? Process, Benefits &amp; Applications</p>
+            <p class="gb-excerpt">Scan to BIM is the process of turning a 3D laser scan of an existing building into an accurate, intelligent BIM model, the digital base a project team designs and builds from.</p>
+          </div>
         </a>
-        <a class="gb-card" href="/blog/how-to-outsource-revit-modeling/">
-          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-outsource/360/200')"></span>
-          <div class="gb-body"><p class="gb-h4">How to outsource Revit BIM modeling</p></div>
+        <a class="gb-card" href="https://vibimglobal.com/blog/point-cloud-model/">
+          <span class="gb-img" role="img" aria-label="Point cloud model generated from a 3D scan" style="background-image:url('https://vibimglobal.com/wp-content/uploads/2025/07/point-cloud-model-1.jpg')"></span>
+          <div class="gb-body">
+            <p class="gb-h4">What Is Point Cloud Modeling? How Point Clouds Are Captured, Converted, and Used</p>
+            <p class="gb-excerpt">Point cloud modeling is the process of converting a raw 3D point cloud into a usable 3D model, 2D plan, or BIM deliverable, so a project team can build from a measured record of a structure instead of assumed dimensions.</p>
+          </div>
         </a>
-        <a class="gb-card" href="/blog/bim-level-of-development/">
-          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-lod/360/200')"></span>
-          <div class="gb-body"><p class="gb-h4">BIM Level of Development guide</p></div>
+        <a class="gb-card" href="https://vibimglobal.com/blog/what-is-bim/">
+          <span class="gb-img" role="img" aria-label="Building Information Modeling in construction" style="background-image:url('https://vibimglobal.com/wp-content/uploads/2025/06/bim-meaning-in-construction.jpg')"></span>
+          <div class="gb-body">
+            <p class="gb-h4">Building Information Modeling (BIM): Meaning, Core Components, and Uses in Construction</p>
+            <p class="gb-excerpt">Building Information Modeling (BIM) is the holistic process of creating and managing all the information about a built asset across its lifecycle, built around an intelligent 3D model that carries data in every component, not just shapes.</p>
+          </div>
         </a>
-        <a class="gb-card" href="/blog/point-cloud-to-bim/">
-          <span class="gb-img" style="background-image:url('https://picsum.photos/seed/vibim-guide-p2b/360/200')"></span>
-          <div class="gb-body"><p class="gb-h4">Point cloud to BIM modeling</p></div>
+        <a class="gb-card" href="https://vibimglobal.com/blog/bim-level-of-development/">
+          <span class="gb-img" role="img" aria-label="BIM Level of Development from LOD 100 to LOD 500" style="background-image:url('https://vibimglobal.com/wp-content/uploads/2025/06/lod-bim-levels.jpg')"></span>
+          <div class="gb-body">
+            <p class="gb-h4">BIM Level of Development (LOD): The Six Levels, Their Uses, and Modeling</p>
+            <p class="gb-excerpt">BIM Level of Development (LOD) is an industry-standard specification that lets architecture, engineering, and construction (AEC) professionals define how much detail, geometry, and information a model element carries at each stage of a project, and how far the project team can rely on it.</p>
+          </div>
         </a>
       </div>
     </div>
@@ -2413,7 +2432,7 @@ bindContactForm(quoteDemoForm,quotePhoneInput,quotePhonePicker);
 function bindSlider(railId,fillId){
   const rail=document.getElementById(railId), fill=document.getElementById(fillId);
   if(!rail) return;
-  function upd(){ if(!fill)return; const max=rail.scrollWidth-rail.clientWidth; const vis=rail.clientWidth/rail.scrollWidth||1; const pct=max>0?rail.scrollLeft/max:0; fill.style.width=(Math.min(1,(vis+(1-vis)*pct))*100).toFixed(1)+'%'; }
+  function upd(){ if(!fill)return; const max=Math.max(0,rail.scrollWidth-rail.clientWidth); const pct=max>0?Math.min(1,Math.max(0,rail.scrollLeft/max)):0; fill.style.width=(pct*100).toFixed(1)+'%'; }
   rail.addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
 }
 bindSlider('emailRail','emailFill'); bindSlider('wordsRail','wordsFill');
@@ -2437,24 +2456,45 @@ function autoSlideRail(railId,interval){
   rail.addEventListener('mouseleave',start);
   rail.addEventListener('touchstart',stop,{passive:true});
   rail.addEventListener('touchend',()=>setTimeout(start,1500),{passive:true});
+  rail.addEventListener('railpaginate',()=>{stop();start();});
   start();
 }
-/* dot pagination for §3 review rails — one dot per card, active follows scroll, click scrolls to card */
-function buildReviewDots(railId,dotsId){
+/* Reachable pagination stops: never render a dot for a card that cannot align because the rail is already at max scroll. */
+function getRailStops(rail){
+  const max=Math.max(0,rail.scrollWidth-rail.clientWidth);
+  if(max<=1) return [0];
+  const rr=rail.getBoundingClientRect();
+  const raw=[0,...[...rail.children].map(c=>Math.min(max,Math.max(0,c.getBoundingClientRect().left-rr.left+rail.scrollLeft))),max].sort((a,b)=>a-b);
+  const epsilon=Math.max(3,Math.min(24,rail.clientWidth*.015)), stops=[];
+  raw.forEach(v=>{
+    if(!stops.length||Math.abs(v-stops[stops.length-1])>epsilon) stops.push(v);
+    else if(Math.abs(v-max)<=1) stops[stops.length-1]=max;
+  });
+  return stops;
+}
+function bindReachableDots(railId,dotsId,itemName){
   const rail=document.getElementById(railId), wrap=document.getElementById(dotsId);
   if(!rail||!wrap) return;
-  const cards=[...rail.children];
-  wrap.innerHTML='';
-  cards.forEach((c,i)=>{
-    const b=document.createElement('button');
-    b.type='button'; b.setAttribute('aria-label','Go to review '+(i+1));
-    b.addEventListener('click',()=>{const left=c.getBoundingClientRect().left-rail.getBoundingClientRect().left+rail.scrollLeft;rail.scrollTo({left,behavior:'smooth'});});
-    wrap.appendChild(b);
-  });
-  const upd=()=>{const railLeft=rail.getBoundingClientRect().left;let best=0,min=Infinity;cards.forEach((c,i)=>{const d=Math.abs(c.getBoundingClientRect().left-railLeft);if(d<min){min=d;best=i}});[...wrap.children].forEach((d,i)=>d.classList.toggle('active',i===best));};
-  rail.addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
+  let stops=[];
+  const upd=()=>{if(!stops.length)return;let best=0,min=Infinity;stops.forEach((left,i)=>{const d=Math.abs(rail.scrollLeft-left);if(d<min){min=d;best=i}});[...wrap.children].forEach((d,i)=>d.classList.toggle('active',i===best));};
+  const rebuild=()=>{
+    if(!rail.clientWidth) return;
+    stops=getRailStops(rail);
+    wrap.innerHTML='';
+    stops.forEach((left,i)=>{
+      const b=document.createElement('button');
+      b.type='button'; b.setAttribute('aria-label','Go to '+itemName+' '+(i+1));
+      b.addEventListener('click',()=>{rail.scrollTo({left,behavior:'smooth'});rail.dispatchEvent(new Event('railpaginate'));});
+      wrap.appendChild(b);
+    });
+    upd();
+  };
+  rail.addEventListener('scroll',upd,{passive:true});
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(rebuild,120);});
+  document.querySelectorAll('input[name="rvtab"]').forEach(tab=>tab.addEventListener('change',()=>requestAnimationFrame(rebuild)));
+  rebuild();
 }
-buildReviewDots('emailRail','emailDots'); buildReviewDots('wordsRail','wordsDots');
+bindReachableDots('emailRail','emailDots','email review'); bindReachableDots('wordsRail','wordsDots','written review');
 autoSlideRail('emailRail',3600); autoSlideRail('wordsRail',4000);
 /* By the Numbers — manual drag/swipe carousel, centered item = active (no auto, no arrows) */
 (function(){
@@ -2614,33 +2654,9 @@ if(document.fonts&&document.fonts.ready){document.fonts.ready.then(initReadMore)
   bindSlider('projRail','projFill');
   bindSlider('expRail','expFill');
   bindSlider('indRail','indFill');
-function buildDots(railId,dotsId){
-  const rail=document.getElementById(railId), wrap=document.getElementById(dotsId);
-  if(!rail||!wrap) return;
-  const cards=[...rail.children];
-  wrap.innerHTML='';
-  cards.forEach((c,i)=>{
-    const b=document.createElement('button');
-    b.type='button'; b.setAttribute('aria-label','Go to market '+(i+1));
-    b.addEventListener('click',()=>{
-      const left=c.getBoundingClientRect().left-rail.getBoundingClientRect().left+rail.scrollLeft;
-      rail.scrollTo({left,behavior:'smooth'});
-    });
-    wrap.appendChild(b);
-  });
-  const upd=()=>{
-    const railLeft=rail.getBoundingClientRect().left;
-    let best=0,min=Infinity;
-    cards.forEach((c,i)=>{const d=Math.abs(c.getBoundingClientRect().left-railLeft);if(d<min){min=d;best=i}});
-    [...wrap.children].forEach((d,i)=>d.classList.toggle('active',i===best));
-  };
-  rail.addEventListener('scroll',upd,{passive:true});
-  addEventListener('resize',upd);
-  upd();
-}
-  buildDots('mktRail','mktDots');
-  buildDots('resRail','resDots');
-  buildDots('startRail','startDots');  /* §How-to-start — mobile drag-slider dots (desktop dots hidden via CSS) */
+  bindReachableDots('mktRail','mktDots','market');
+  bindReachableDots('resRail','resDots','result');
+  bindReachableDots('startRail','startDots','step');  /* §How-to-start — mobile drag-slider dots (desktop dots hidden via CSS) */
 function autoSlide(railId,interval){
   const rail=document.getElementById(railId);
   if(!rail||matchMedia('(prefers-reduced-motion:reduce)').matches) return;
@@ -2658,6 +2674,7 @@ function autoSlide(railId,interval){
   rail.addEventListener('mouseleave',start);
   rail.addEventListener('touchstart',stop,{passive:true});
   rail.addEventListener('touchend',()=>setTimeout(start,1500),{passive:true});
+  rail.addEventListener('railpaginate',()=>{stop();start();});
   start();
 }
   autoSlide('mktRail',3200);
